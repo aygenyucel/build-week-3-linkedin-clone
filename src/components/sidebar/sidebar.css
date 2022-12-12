@@ -1,0 +1,56 @@
+.sidebar-right {
+    width: fit-content;
+    font-size: 15px;
+    border-radius: 10px;   
+  }
+
+  .content-div1 {
+    width:100%;
+    font-size: 15px;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-left: 0px;
+    border: 1px solid lightgray;
+  }
+  .viewer-profiles {
+    padding-left: 10px;
+    margin-top: 10px;
+    height: fit-content;
+    width:100%;
+    border: 1px solid lightgray;
+    border-radius: 25%;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+  }
+  .trans-line{
+    border: rgb(145, 144, 144) 1px solid;
+    border-radius: 23px;
+    width: 90%;
+    opacity: .8;
+  }
+  
+   .message{
+    background-color: white;
+    color: black;
+    border:black 2px solid;
+    cursor: pointer;
+    border-radius: 23px;
+     padding: 0.3rem 1.2rem 0.3rem 1.2rem;
+   }
+
+
+   .bigger-font {
+    font-size: 20px;
+    color: black !important;
+   }
+
+   .br-100 {
+    border-radius: 50% !important;
+   }
+
+   .font-w-bold {
+    font-weight: 600;
+    font-size: 20px;
+   }
