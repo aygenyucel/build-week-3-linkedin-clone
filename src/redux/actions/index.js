@@ -11,7 +11,7 @@ export const getProfileAction = () => {
   return async (dispatch, getState) => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/me`,
+        `https://striveschool-api.herokuapp.com/api/profile/5fc4baecb708c200175de89b`,
         options
       );
       if (response.ok) {

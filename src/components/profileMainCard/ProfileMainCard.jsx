@@ -1,8 +1,22 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
 import "./profileMainCard.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProfileAction } from "../../redux/actions";
+
 
 const ProfileMainCard = () => {
+
+  const selector = useSelector(state => state.profile.data)
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(getProfileAction());
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
   return (
     <div className="profile-main-card mb-4">
       <div className="profile-main-card-background">
@@ -14,7 +28,7 @@ const ProfileMainCard = () => {
       <Container className="profile-main-card-middle mb-4">
         <div className="d-flex justify-content-between align-items-end">
           <div className="profile-img">
-            <img src="assets/profile-img-default.jpeg" alt="profile img" />
+            <img src={selector.image} alt="profile img" />
           </div>
           <div className="edit-icon bell-icon">
             <FiEdit2 />
@@ -25,16 +39,16 @@ const ProfileMainCard = () => {
         <Row>
           <Col xs={8}>
             <div className="main-info d-flex flex-column">
-              <div className="profile-name">Michael Scott</div>
+              <div className="profile-name">{selector.name} {selector.surname}</div>
               <div className="profile-about mb-2">
-                Regional Manager at Dundler Mifflin
+                {selector.title}
               </div>
               <div className="profile-details d-flex align-items-center mb-2">
                 <div className="profile-location mr-2">
-                  Roanoke, Texas, United States
+                  {selector.area}
                 </div>
                 <div className="profile-contact-info-btn d-flex align-items-center">
-                  <a href="/">Contact info</a>
+                  <p>Contact info:</p><a href="/">{selector.email}</a>
                 </div>
               </div>
               <div className="profile-connections mb-2">
@@ -66,7 +80,22 @@ const ProfileMainCard = () => {
             </div>
           </Col>
         </Row>
-        <Row></Row>
+        <Row className="mt-5">
+        <div className="content-div1">
+          <Col className="content-Col">
+            <Row className="content-Row">
+              <h4 className="mt-3 mb-3">
+                About
+              </h4>
+            </Row>
+            <Row className="content-Row">
+              <p className="mt-3">
+                {selector.bio}
+              </p>
+            </Row>
+          </Col>
+        </div>
+        </Row>
       </Container>
     </div>
   );
