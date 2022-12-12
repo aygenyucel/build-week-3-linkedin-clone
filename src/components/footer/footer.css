@@ -27,7 +27,8 @@
 }
 
 .footer_label {
-    color: lightgray;
+    color: black !important;
+    opacity: .8;
     font-weight: 2;
     font-size: 14px;
 }
@@ -39,3 +40,4 @@
 .footer-logo-profile {
     background-color: blue;
 }
+
