@@ -1,0 +1,116 @@
+:root {
+  --primary-color: #0a66c2;
+  --color-text-gray: #929292;
+  --color-text-dark-gray: #6e6e6e;
+  --card-border: 1px solid #dcdcdc;
+  --color-btn-hover: #e2f0fe;
+  --color-gray-btn-hover: #ebebeb;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+.profile-main-card {
+  /* background-color: rgb(188, 144, 144); */
+
+  border-radius: 10px;
+  border: var(--card-border);
+  height: calc(100% - 120px);
+}
+.container > div {
+  padding-inline: 0.8rem;
+}
+
+.profile-main-card-background img {
+  width: 100%;
+  max-height: 195.5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.profile-main-card-middle .edit-icon {
+  color: var(--color-text-dark-gray);
+  font-size: 1.4rem;
+}
+
+.profile-main-card-middle .profile-img img {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  outline: 5px solid white;
+  object-fit: cover;
+}
+
+.profile-main-card-middle,
+.profile-main-card-info {
+  transform: translateY(-120px);
+}
+
+.profile-main-card-middle .edit-ico .container > div {
+  margin-inline: 15px;
+}
+
+.profile-main-card-info .main-info .profile-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile-main-card-info .profile-location {
+  color: var(--color-text-gray);
+  font-size: 0.9rem;
+}
+
+.profile-main-card-info .profile-contact-info-btn a,
+.profile-main-card-info .profile-connections a {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.profile-buttons .open-to-btn,
+.profile-buttons .add-profile-section-btn,
+.profile-buttons .more-btn {
+  font-weight: 600;
+  border-radius: 50px;
+  padding-inline: 17px;
+  padding-block: 4px;
+}
+
+.profile-buttons .open-to-btn {
+  background-color: var(--primary-color);
+}
+
+.profile-buttons .add-profile-section-btn {
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+  color: var(--primary-color);
+}
+.profile-buttons .add-profile-section-btn:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--primary-color);
+}
+
+.profile-buttons .more-btn {
+  border: 1px solid var(--color-text-gray);
+  color: var(--color-text-gray);
+  background-color: transparent;
+}
+
+.profile-buttons .more-btn:hover {
+  border: 1px solid var(--color-text-gray);
+  background-color: var(--color-gray-btn-hover);
+  color: var(--color-text-gray);
+}
+
+.company-info .company-logo img {
+  height: 32px;
+  width: 32px;
+  background-color: #0a66c2;
+  object-fit: cover;
+}
+.company-info .company-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
