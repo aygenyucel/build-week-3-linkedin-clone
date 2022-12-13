@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getProfileAction } from "../../redux/actions";
 
-
 const ProfileMainCard = () => {
 
   const selector = useSelector(state => state.profile.data)

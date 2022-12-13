@@ -9,8 +9,11 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { RiMessage2Fill } from "react-icons/ri";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import "./NavBar.css";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
+
+  const selector = useSelector(state => state.profile.data)
   return (
     <Navbar bg="light" expand="lg">
       <Container className="main-container-navbar">
@@ -72,7 +75,7 @@ const NavBar = () => {
                   <div className="profile-pic-container">
                     <img
                       className="profile-pic"
-                      src="https://www.looper.com/img/gallery/the-michael-scott-moment-that-32-of-the-office-fans-believe-went-too-far/l-intro-1619578895.jpg"
+                      src={selector.image}
                       alt=""
                     />
                   </div>

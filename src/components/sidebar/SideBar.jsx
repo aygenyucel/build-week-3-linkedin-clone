@@ -66,7 +66,7 @@ const SideBar = () => {
                   <div className="d-flex ">
                     <div className="viewer-picture">
                       <img
-                        className="linkedin-user-image pro-pic rounded br-100"
+                        className="linkedin-user-image pro-pic br-100"
                         src={profile.image}
                         alt="pro-pic"
                         width={60}
@@ -87,8 +87,8 @@ const SideBar = () => {
                     </div>
                   </div>
                   <span className="align-self-center">
-                    <button className="message mt-3">
-                      <SendFill className="plus-icon" /> Message
+                    <button className="message mt-3 opaque-much">
+                      <SendFill className="plus-icon opaque-much" /> Message
                     </button>
                   </span>
                 </div>
