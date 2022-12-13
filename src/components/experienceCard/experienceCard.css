@@ -16,6 +16,10 @@
   width: 48px;
 }
 
+.about-row {
+  font-size: 0.9rem;
+}
+
 .header-card {
   font-size: 1.2rem;
   font-weight: 600;

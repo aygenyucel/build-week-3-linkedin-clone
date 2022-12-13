@@ -6,15 +6,14 @@ import { useEffect } from "react";
 import { getProfileAction } from "../../redux/actions";
 
 const ProfileMainCard = () => {
-
-  const selector = useSelector(state => state.profile.data)
+  const selector = useSelector((state) => state.profile.data);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getProfileAction());
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    dispatch(getProfileAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="profile-main-card mb-4">
@@ -38,16 +37,15 @@ const ProfileMainCard = () => {
         <Row>
           <Col xs={8}>
             <div className="main-info d-flex flex-column">
-              <div className="profile-name">{selector.name} {selector.surname}</div>
-              <div className="profile-about mb-2">
-                {selector.title}
+              <div className="profile-name">
+                {selector.name} {selector.surname}
               </div>
+              <div className="profile-about mb-2">{selector.title}</div>
               <div className="profile-details d-flex align-items-center mb-2">
-                <div className="profile-location mr-2">
-                  {selector.area}
-                </div>
+                <div className="profile-location mr-2">{selector.area}</div>
                 <div className="profile-contact-info-btn d-flex align-items-center">
-                  <p>Contact info:</p><a href="/">{selector.email}</a>
+                  <p>Contact info:</p>
+                  <a href="/">{selector.email}</a>
                 </div>
               </div>
               <div className="profile-connections mb-2">
@@ -78,22 +76,6 @@ const ProfileMainCard = () => {
               <div className="company-name d-flex ">Dundler Mifflin</div>
             </div>
           </Col>
-        </Row>
-        <Row className="mt-5">
-        <div className="content-div1">
-          <Col className="content-Col">
-            <Row className="content-Row">
-              <h4 className="mt-3 mb-3">
-                About
-              </h4>
-            </Row>
-            <Row className="content-Row">
-              <p className="mt-3">
-                {selector.bio}
-              </p>
-            </Row>
-          </Col>
-        </div>
         </Row>
       </Container>
     </div>
