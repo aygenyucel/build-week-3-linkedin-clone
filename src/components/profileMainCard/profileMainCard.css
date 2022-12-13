@@ -16,7 +16,7 @@ a {
 
   border-radius: 10px;
   border: var(--card-border);
-  height: calc(100% - 120px);
+  /* height: calc(100% - 120px); */
 }
 .container > div {
   padding-inline: 0.8rem;
