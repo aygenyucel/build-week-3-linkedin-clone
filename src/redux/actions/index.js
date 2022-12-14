@@ -5,7 +5,6 @@ export const GET_EXPERIENCES_USER = "GET_EXPERIENCES_USER";
 
 export const GET_PROFILES_LIST = " GET_PROFILES_LIST";
 
-
 export const getProfileAction = () => {
   const options = {
     method: "GET",
@@ -122,7 +121,10 @@ export const getUserExperiencesAction = (userId) => {
       }
     } catch (error) {
       console.log("🚀 error", error);
-      
+    }
+  };
+};
+
 export const getProfilesListAction = () => {
   return async (dispatch) => {
     const options = {
