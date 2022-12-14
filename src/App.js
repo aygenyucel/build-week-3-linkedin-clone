@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 import NavBar from "./components/NavBar/NabVabarComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserProfilePage from "./components/userProfilePage/UserProfilePage";
+import FeedPage from "./components/FeedPageFiles/FeedPage/FeedMainPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ProfilePage />} />
           <Route path="/:id" element={<UserProfilePage />} />
+          <Route path="/feed" element={<FeedPage />} />
           {/* <ProfilePage /> */}
         </Routes>
         <Footer />
