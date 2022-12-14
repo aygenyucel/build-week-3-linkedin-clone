@@ -16,10 +16,14 @@ a {
 
   border-radius: 10px;
   border: var(--card-border);
-  height: calc(100% - 120px);
+  padding-bottom: 20px;
 }
 .container > div {
   padding-inline: 0.8rem;
+}
+
+.profile-main-card-background {
+  position: relative;
 }
 
 .profile-main-card-background img {
@@ -35,18 +39,25 @@ a {
   font-size: 1.4rem;
 }
 
-.profile-main-card-middle .profile-img img {
+.profile-img img {
   height: 160px;
   width: 160px;
   border-radius: 50%;
   outline: 5px solid white;
   object-fit: cover;
+  position: absolute;
+  bottom: -35px;
+  left: 30px;
 }
 
-.profile-main-card-middle,
+/* .profile-main-card-bottom {
+  transform: translateY(-120px);
+} */
+
+/* .profile-main-card-middle,
 .profile-main-card-info {
   transform: translateY(-120px);
-}
+} */
 
 .profile-main-card-middle .edit-ico .container > div {
   margin-inline: 15px;
@@ -113,8 +124,4 @@ a {
 .company-info .company-name {
   font-size: 0.9rem;
   font-weight: 600;
-}
-
-#tdn {
-  text-decoration: none !important;
 }
