@@ -8,12 +8,14 @@ const GetPosts = () => {
   useEffect(() => {
     dispatch(getFeedPostsAction());
   }, []);
-
   console.log(feedPosts);
   return (
     <div>
       {feedPosts.map((element) => (
-        <div>{element.text}</div>
+        <div key={element._id}>
+          post --{element.text}
+          user--{element.username}
+        </div>
       ))}
     </div>
   );

@@ -1,4 +1,3 @@
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import ProfilePage from "./components/profilePage/ProfilePage";
 import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -7,6 +6,7 @@ import NavBar from "./components/NavBar/NabVabarComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserProfilePage from "./components/userProfilePage/UserProfilePage";
 import FeedPage from "./components/FeedPageFiles/FeedPage/FeedMainPage";
+import GetMyPosts from "./components/FeedPageFiles/GetMyPosts/GetMyPosts";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<ProfilePage />} />
           <Route path="/:id" element={<UserProfilePage />} />
           <Route path="/feed" element={<FeedPage />} />
+          <Route path="/myposts" element={<GetMyPosts />} />
           {/* <ProfilePage /> */}
         </Routes>
         <Footer />

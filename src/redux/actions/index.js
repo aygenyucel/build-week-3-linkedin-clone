@@ -226,12 +226,42 @@ export const deletePostAction = (idPost) => {
         options
       );
       if (response.ok) {
-        alert("Comment was sent!");
+        alert("Comment was deleted!");
       } else {
-        console.log(`something went wrong`);
+        console.log("Comment NOT deleted!");
       }
     } catch (error) {
       console.log(error);
+      console.log("Comment NOT deleted!");
+    }
+  };
+};
+
+export const editPostAction = (idPost, textPost) => {
+  const newPost = { text: textPost };
+  return async () => {
+    const options = {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+      },
+      body: JSON.stringify(newPost),
+    };
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/posts/${idPost}`,
+        options
+      );
+      if (response.ok) {
+        alert("Comment was edited!");
+      } else {
+        console.log("Comment NOT edited!");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log("Comment NOT edited!");
     }
   };
 };
