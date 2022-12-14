@@ -3,6 +3,9 @@ export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_PROFILE_USER = "GET_PROFILE_USER";
 export const GET_EXPERIENCES_USER = "GET_EXPERIENCES_USER";
 
+export const GET_PROFILES_LIST = " GET_PROFILES_LIST";
+
+
 export const getProfileAction = () => {
   const options = {
     method: "GET",
@@ -119,6 +122,32 @@ export const getUserExperiencesAction = (userId) => {
       }
     } catch (error) {
       console.log("🚀 error", error);
+      
+export const getProfilesListAction = () => {
+  return async (dispatch) => {
+    const options = {
+      method: "GET",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+      },
+    };
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        options
+      );
+      if (response.ok) {
+        let data = await response.json();
+        dispatch({
+          type: GET_PROFILES_LIST,
+          payload: data,
+        });
+      } else {
+        console.log(`something went wrong`);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 };
