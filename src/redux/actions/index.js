@@ -165,14 +165,16 @@ export const getFeedPostsAction = () => {
     };
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/posts/ ",
+        "https://striveschool-api.herokuapp.com/api/posts",
         options
       );
       if (response.ok) {
         let data = await response.json();
+
+        const chunkOfPosts = data.reverse().splice(0, 20);
         dispatch({
           type: GET_POSTS_LIST,
-          payload: data,
+          payload: chunkOfPosts,
         });
       } else {
         console.log(`something went wrong`);
@@ -201,7 +203,7 @@ export const createNewPostAction = (textPost) => {
         options
       );
       if (response.ok) {
-        alert("Comment was sent!");
+        alert("Post was sent!");
       } else {
         console.log(`something went wrong`);
       }
@@ -226,19 +228,20 @@ export const deletePostAction = (idPost) => {
         options
       );
       if (response.ok) {
-        alert("Comment was deleted!");
+        alert("Post was deleted!");
       } else {
         console.log("Comment NOT deleted!");
       }
     } catch (error) {
       console.log(error);
-      console.log("Comment NOT deleted!");
+      console.log("Post NOT deleted!");
     }
   };
 };
 
 export const editPostAction = (idPost, textPost) => {
   const newPost = { text: textPost };
+
   return async () => {
     const options = {
       method: "PUT",
@@ -255,13 +258,13 @@ export const editPostAction = (idPost, textPost) => {
         options
       );
       if (response.ok) {
-        alert("Comment was edited!");
+        alert("Post was edited!");
       } else {
-        console.log("Comment NOT edited!");
+        console.log("Post NOT edited!");
       }
     } catch (error) {
       console.log(error);
-      console.log("Comment NOT edited!");
+      console.log("Post NOT edited!");
     }
   };
 };

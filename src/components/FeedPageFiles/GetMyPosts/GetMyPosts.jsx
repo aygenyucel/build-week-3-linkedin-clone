@@ -5,8 +5,8 @@ import {
   deletePostAction,
   editPostAction,
 } from "../../../redux/actions";
-
-import { Container, Button, Modal, Form } from "react-bootstrap";
+import { FiEdit2 } from "react-icons/fi";
+import { Button, Modal, Form, Row } from "react-bootstrap";
 
 const GetMyPosts = () => {
   //modal
@@ -27,55 +27,89 @@ const GetMyPosts = () => {
     (element) => element.username === "Raul"
   );
   console.log(myPostsList);
+
   const handleChange = (e) => {
     setEditedPost(e.target.value);
   };
   return (
-    <Container>
-      {myPostsList.map((element) => (
-        <div key={element._id}>
-          <p className="mt-5">{element.text}</p>
-          <p>
-            <button className="mr-2" onClick={deletePostAction(element._id)}>
-              DELETE POST
-            </button>
-            <Button variant="primary" onClick={handleShow}>
-              EDIT POST
-            </Button>
-          </p>
-          <>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <Form>
-                  <Form.Control
-                    type="text"
-                    onChange={handleChange}
-                    value={editedPost}
-                    placeholder={element.text}
+    <>
+      <Row>
+        {myPostsList.map((element, index) => (
+          <div className="mb-2" key={element._id}>
+            <div className="post-div " key={element._id}>
+              <div className="d-flex justify-content-between">
+                <div className="d-flex">
+                  <div className="profile-img-post p-2 mt-2">
+                    <img src={element.user.image} alt="img" />
+                  </div>
+                  <div>
+                    <div className=" p-2 d-flex align-items-center flex-column">
+                      <p className="ml-1 name-user-p ">
+                        <strong>{element.username}</strong>
+                      </p>
+                      <p className="ml-1 title-user-p">{element.user.title}</p>
+                    </div>
+                  </div>
+                </div>
+                <div onClick={handleShow}>
+                  <FiEdit2 size={20} />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div className="p-1">{element.text}</div>
+                </div>
+                <div className="d-flex justify-content-center mt-2">
+                  <img
+                    src={`https://picsum.photos/id/${index}/550/280`}
+                    alt=""
                   />
-                </Form>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={
-                    (handleClose, editPostAction(element._id, editedPost))
-                  }
-                >
-                  Save Changes
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </>
-        </div>
-      ))}
-    </Container>
+                </div>
+              </div>
+            </div>
+
+            <>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Edit or Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Form>
+                    <Form.Control
+                      type="text"
+                      onChange={handleChange}
+                      value={editedPost}
+                      placeholder={element.text}
+                    />
+                  </Form>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button
+                    variant="primary"
+                    onClick={
+                      (handleClose, editPostAction(element._id, editedPost))
+                    }
+                  >
+                    Save Changes
+                  </Button>
+
+                  <Button
+                    variant="danger"
+                    className="mr-2"
+                    onClick={deletePostAction(element._id)}
+                  >
+                    DELETE POST
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </>
+          </div>
+        ))}
+      </Row>
+    </>
   );
 };
 
