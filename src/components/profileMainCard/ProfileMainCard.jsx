@@ -1,20 +1,8 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
 import "./profileMainCard.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProfileAction } from "../../redux/actions";
 
-const ProfileMainCard = () => {
-  const selector = useSelector((state) => state.profile.data);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getProfileAction());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+const ProfileMainCard = ({ mainData }) => {
   return (
     <div className="profile-main-card mb-4">
       <div className="profile-main-card-background">
@@ -23,7 +11,7 @@ const ProfileMainCard = () => {
           alt="profile background"
         />
         <div className="profile-img">
-          <img src={selector.image} alt="profile img" />
+          <img src={mainData.image} alt="profile img" />
         </div>
       </div>
       <div className="profile-main-card-bottom">
@@ -39,14 +27,14 @@ const ProfileMainCard = () => {
             <Col xs={8}>
               <div className="main-info d-flex flex-column">
                 <div className="profile-name">
-                  {selector.name} {selector.surname}
+                  {mainData.name} {mainData.surname}
                 </div>
-                <div className="profile-about mb-2">{selector.title}</div>
+                <div className="profile-about mb-2">{mainData.title}</div>
                 <div className="profile-details d-flex align-items-center mb-2">
-                  <div className="profile-location mr-2">{selector.area}</div>
+                  <div className="profile-location mr-2">{mainData.area}</div>
                   <div className="profile-contact-info-btn d-flex align-items-center">
                     <a href="/">Contact info</a>
-                    {/* <a href="/">{selector.email}</a> */}
+                    {/* <a href="/">{mainData.email}</a> */}
                   </div>
                 </div>
                 <div className="profile-connections mb-2">

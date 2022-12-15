@@ -5,16 +5,16 @@ import "./profilePage.css";
 import ExperienceCard from "../experienceCard/ExperienceCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getExperiencesAction, getProfileAction } from "../../redux/actions";
+import {
+  getExperiencesAction,
+  getProfileAction,
+  getUserExperiencesAction,
+  getUserProfileAction,
+} from "../../redux/actions";
 import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 
 const ProfilePage = () => {
-  const profileExperiencesData = useSelector(
-    (state) => state.profile.experiencesData
-  );
-  const profileMainData = useSelector((state) => state.profile.data);
-  const profileId = useSelector((state) => state.profile.profileId);
   const dispatch = useDispatch();
   const params = useParams();
   const location = useLocation();
@@ -23,24 +23,35 @@ const ProfilePage = () => {
     location.pathname.length
   );
 
-  useEffect(() => {
-    dispatch(getExperiencesAction());
-    dispatch(getProfileAction());
-    console.log("mainData", profileMainData);
-    console.log("experiencesData", profileExperiencesData);
-    console.log("profileId:", profileId);
-    console.log("dynamic url:", dynamicUrl);
-    console.log("params.id:", params.id);
+  //getting the datas for own profile
+  const profileMainData = useSelector((state) => state.profile.data);
+  const profileExperiencesData = useSelector(
+    (state) => state.profile.experiencesData
+  );
 
+  //getting the datas for other users' profile
+  const userMainData = useSelector((state) => state.usersProfile.userData);
+  const userExperiencesData = useSelector(
+    (state) => state.usersProfile.userExperiencesData
+  );
+
+  useEffect(() => {
+    if (dynamicUrl === "me") {
+      dispatch(getExperiencesAction());
+      dispatch(getProfileAction());
+    } else {
+      dispatch(getUserProfileAction(params.id));
+      dispatch(getUserExperiencesAction(params.id));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dynamicUrl]);
 
   return (
     <>
       {dynamicUrl === "me" ? (
         <Container className="d-flex mt-2">
           <div className="main-card-div">
-            <ProfileMainCard />
+            <ProfileMainCard mainData={profileMainData} />
             <AboutCard bio={profileMainData.bio} />
             <ExperienceCard experiences={profileExperiencesData} />
           </div>
@@ -50,7 +61,17 @@ const ProfilePage = () => {
           </div>
         </Container>
       ) : (
-        <div>no</div>
+        <Container className="d-flex mt-2">
+          <div className="main-card-div">
+            <ProfileMainCard mainData={userMainData} />
+            <AboutCard bio={userMainData.bio} />
+            <ExperienceCard experiences={userExperiencesData} />
+          </div>
+
+          <div className="sidebar-div">
+            <SideBar />
+          </div>
+        </Container>
       )}
     </>
   );
