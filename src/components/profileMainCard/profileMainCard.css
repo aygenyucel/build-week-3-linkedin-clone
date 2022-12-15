@@ -40,6 +40,24 @@ a {
   font-size: 1.3rem;
 }
 
+.edit-icon, #dropdown-item-button {
+  background-color: white !important;
+  border: transparent !important;
+}
+
+#dropdown-item-button {
+  background-color: transparent !important;
+  border: 1px solid gray !important;
+  width: 100% !important;
+  color: black !important;
+  opacity: .5;
+}
+
+.stubborn-btn {
+  justify-self: flex-end !important;
+  align-self: flex-end !important;
+}
+
 .profile-img img {
   height: 160px;
   width: 160px;

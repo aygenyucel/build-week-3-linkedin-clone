@@ -21,7 +21,6 @@ const NavBar = () => {
     (state) => state.listOfProfiles.profilesList
   );
 
-  // console.log(listOfProfile);
   const [results, setResults] = useState([]);
 
   useEffect(() => {

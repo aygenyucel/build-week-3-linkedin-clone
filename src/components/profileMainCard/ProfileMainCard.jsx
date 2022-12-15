@@ -4,6 +4,15 @@ import "./profileMainCard.css";
 import { BsBell } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdPersonAdd } from "react-icons/md";
+import { useDispatch} from "react-redux";
+import { useEffect, useState } from "react";
+import { getProfileAction } from "../../redux/actions";
+import EditProfileModal from "../editProfileModal/EditProfileModal";
+
+const ProfileMainCard = () => {
+
+  const [show, setShow] = useState(false)
+  const dispatch = useDispatch();
 
 const ProfileMainCard = ({ mainData, isMyProfile }) => {
   return (
@@ -20,23 +29,31 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
       <div className="profile-main-card-bottom">
         <Container className="profile-main-card-middle mb-4">
           <div className="d-flex justify-content-end align-items-end">
+
             {isMyProfile ? (
               <div className="edit-icon">
-                <FiEdit2 />
+                 <Button className="edit-icon" onClick={() => setShow(true)}>
+                  <EditProfileModal show={show}/>
+                  <FiEdit2 />
+                </Button>
               </div>
             ) : (
               <div className="bell-icon">
                 <BsBell />
               </div>
             )}
+
           </div>
         </Container>
+        
         <Container className="profile-main-card-info">
           <Row>
             <Col xs={8}>
               <div className="main-info d-flex flex-column">
+
                 <div className="profile-name">
                   {mainData.name} {mainData.surname}
+                  
                 </div>
                 <div className="profile-about mb-2">{mainData.title}</div>
                 <div className="profile-details d-flex align-items-center mb-2">
