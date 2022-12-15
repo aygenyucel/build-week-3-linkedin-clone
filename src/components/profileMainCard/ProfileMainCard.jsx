@@ -7,13 +7,49 @@ import { MdPersonAdd } from "react-icons/md";
 import { useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
 import { getProfileAction } from "../../redux/actions";
-import EditProfileModal from "../editProfileModal/EditProfileModal";
-
+import { updateEditAction } from "../../redux/actions";
+import { Form, Modal } from "react-bootstrap";
 
 
 const ProfileMainCard = ({ mainData, isMyProfile }) => {
 
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
+
+  const [name, setName] = useState(``);
+  const [surname, setSurname] = useState(``);
+  const [email, setEmail] = useState(``);
+  const [bio, setBio] = useState(``);
+  const [title, setTitle] = useState(``);
+  const [area, setArea] = useState(``);
+
+  const updateAction = () => {
+    dispatch(updateEditAction(name, surname, bio, title, area));
+    setShow(false);
+    dispatch(getProfileAction());
+  };
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleChangeSurname = (e) => {
+    setSurname(e.target.value);
+  }
+
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
+  }
+
+  const handleChangeBio = (e) => {
+    setBio(e.target.value);
+  }
+
+  const handleChangeArea = (e) => {
+    setArea(e.target.value);
+  }
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   return (
     <div className="profile-main-card mb-2">
@@ -32,10 +68,60 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
 
             {isMyProfile ? (
               <div className="edit-icon">
-                 <Button className="edit-icon" onClick={() => setShow(true)}>
-                  <EditProfileModal tim={show}/>
+                 <Button className="edit-icon" onClick={handleShow}>
                   <FiEdit2 />
                 </Button>
+                <Modal
+      dialogClassName="modal-100w"
+      aria-labelledby="example-custom-modal-styling-title"
+      show={show} onHide={handleClose}
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="example-custom-modal-styling-title">
+          Edit intro
+        </Modal.Title>
+      </Modal.Header>
+      <p className="text-muted sm-txt">*Indicates required</p>
+      <Modal.Body>
+        <Form.Group>
+          <Form.Label>First Name*</Form.Label>
+          <Form.Control
+            onChange={handleChangeName}
+            type="text"
+            placeholder="Enter first name"
+            value={name}
+          />
+          <Form.Label>Last name*</Form.Label>
+          <Form.Control
+            onChange={handleChangeSurname}
+            type="text"
+            placeholder="Enter surname"
+            value={surname}
+          />
+          <Form.Label>Additional name</Form.Label>
+          <Form.Control type="text" placeholder="Enter nickname" />
+          <hr />
+          <p className="text-muted">Name pronunciation</p>
+          <p>This can only be added using our mobile app</p>
+            <Form.Label className="d-block text-muted">Headline*</Form.Label>
+            <Form.Control onChange={handleChangeTitle} type="text" placeholder="Enter title" value={title} />
+            <hr />
+            <Form.Label className="d-block text-muted">Current position</Form.Label>
+            <Form.Control onChange={handleChangeBio} type="text" placeholder="Enter title" value={bio} />
+            <hr />
+            <Form.Label className="d-block text-muted">Country/Region</Form.Label>
+            <Form.Control onChange={handleChangeArea} type="text" placeholder="Enter title" value={area} />
+          <Button
+            variant="primary"
+            className="stubborn-btn"
+            onClick={() => updateAction()}
+          >
+            Save
+          </Button>
+
+        </Form.Group>
+      </Modal.Body>
+    </Modal>
               </div>
             ) : (
               <div className="bell-icon">
