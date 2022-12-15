@@ -23,10 +23,8 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
         const slicedData = data.slice(60, 70);
         setProfiles(slicedData);
-        console.log(profiles);
         // console.log(data);
         // console.log(profiles);
       } else {

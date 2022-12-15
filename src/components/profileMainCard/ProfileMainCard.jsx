@@ -2,12 +2,22 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
 import "./profileMainCard.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getProfileAction } from "../../redux/actions";
+import EditProfileModal from "../editProfileModal/EditProfileModal";
 
 const ProfileMainCard = () => {
+
+  const [show, setShow] = useState(false)
   const selector = useSelector((state) => state.profile.data);
 
+  // const updateAction = () => {
+  //   dispatch(updateEditAction());
+  // }
+
+  // const handleShow = () => {
+  //   setShow(true)
+  // }
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,16 +39,18 @@ const ProfileMainCard = () => {
       <div className="profile-main-card-bottom">
         <Container className="profile-main-card-middle mb-4">
           <div className="d-flex justify-content-end align-items-end">
-            <div className="edit-icon bell-icon">
-              <FiEdit2 />
-            </div>
+          <Button  className="edit-icon" onClick={() => setShow(true)}>
+            <EditProfileModal show={show}/>
+        <FiEdit2 />
+      </Button>
           </div>
         </Container>
+        
         <Container className="profile-main-card-info">
           <Row>
             <Col xs={8}>
               <div className="main-info d-flex flex-column">
-                <div className="profile-name">
+                <div className="profile-name" id="surname">
                   {selector.name} {selector.surname}
                 </div>
                 <div className="profile-about mb-2">{selector.title}</div>
