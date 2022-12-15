@@ -1,7 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { FiEdit2, FiSend } from "react-icons/fi";
+import { FiEdit2 } from "react-icons/fi";
 import "./profileMainCard.css";
-import { BsBell, BsBellSlash } from "react-icons/bs";
+import { BsBell } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdPersonAdd } from "react-icons/md";
 

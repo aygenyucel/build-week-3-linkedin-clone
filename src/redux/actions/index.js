@@ -23,7 +23,7 @@ export const getProfileAction = () => {
       );
       if (response.ok) {
         const profileData = await response.json();
-        console.log("Get user profile:", profileData);
+        // console.log("Get user profile:", profileData);
         dispatch({
           type: GET_PROFILE,
           payload: profileData,
@@ -57,7 +57,7 @@ export const getExperiencesAction = () => {
       );
       if (response.ok) {
         const experiencesData = await response.json();
-        console.log("Get user profile", experiencesData);
+        // console.log("Get user profile", experiencesData);
         dispatch({
           type: GET_EXPERIENCES,
           payload: experiencesData,
@@ -87,7 +87,7 @@ export const getUserProfileAction = (userId) => {
       );
       if (response.ok) {
         const userProfileData = await response.json();
-        console.log("Get another user profile", userProfileData);
+        // console.log("Get another user profile", userProfileData);
         dispatch({
           type: GET_PROFILE_USER,
           payload: userProfileData,
@@ -117,7 +117,6 @@ export const getUserExperiencesAction = (userId) => {
       );
       if (response.ok) {
         const userExperiencesData = await response.json();
-        console.log("Get another user experience", userExperiencesData);
         dispatch({
           type: GET_EXPERIENCES_USER,
           payload: userExperiencesData,

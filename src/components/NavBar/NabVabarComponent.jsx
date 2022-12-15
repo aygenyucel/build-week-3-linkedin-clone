@@ -21,11 +21,12 @@ const NavBar = () => {
     (state) => state.listOfProfiles.profilesList
   );
 
-  console.log(listOfProfile);
+  // console.log(listOfProfile);
   const [results, setResults] = useState([]);
 
   useEffect(() => {
     dispatch(getProfilesListAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e) => {
