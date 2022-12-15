@@ -51,11 +51,14 @@ const ProfilePage = () => {
       {dynamicUrl === "me" ? (
         <Container className="d-flex mt-2">
           <div className="main-card-div">
-            <ProfileMainCard mainData={profileMainData} />
-            <AboutCard bio={profileMainData.bio} />
-            <ExperienceCard experiences={profileExperiencesData} />
+            <ProfileMainCard mainData={profileMainData} isMyProfile={true} />
+            {/* checking if there are any bio */}
+            {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
+            {/* checking if there are any experiences */}
+            {profileExperiencesData.length !== 0 && (
+              <ExperienceCard experiences={profileExperiencesData} />
+            )}
           </div>
-
           <div className="sidebar-div">
             <SideBar />
           </div>
@@ -64,8 +67,12 @@ const ProfilePage = () => {
         <Container className="d-flex mt-2">
           <div className="main-card-div">
             <ProfileMainCard mainData={userMainData} />
-            <AboutCard bio={userMainData.bio} />
-            <ExperienceCard experiences={userExperiencesData} />
+            {/* checking if there are any bio */}
+            {userMainData.bio && <AboutCard bio={userMainData.bio} />}
+            {/* checking if there are any experiences */}
+            {userExperiencesData.length !== 0 && (
+              <ExperienceCard experiences={userExperiencesData} />
+            )}
           </div>
 
           <div className="sidebar-div">

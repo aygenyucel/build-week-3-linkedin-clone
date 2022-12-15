@@ -1,8 +1,11 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { FiEdit2 } from "react-icons/fi";
+import { FiEdit2, FiSend } from "react-icons/fi";
 import "./profileMainCard.css";
+import { BsBell, BsBellSlash } from "react-icons/bs";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { MdPersonAdd } from "react-icons/md";
 
-const ProfileMainCard = ({ mainData }) => {
+const ProfileMainCard = ({ mainData, isMyProfile }) => {
   return (
     <div className="profile-main-card mb-4">
       <div className="profile-main-card-background">
@@ -17,9 +20,15 @@ const ProfileMainCard = ({ mainData }) => {
       <div className="profile-main-card-bottom">
         <Container className="profile-main-card-middle mb-4">
           <div className="d-flex justify-content-end align-items-end">
-            <div className="edit-icon bell-icon">
-              <FiEdit2 />
-            </div>
+            {isMyProfile ? (
+              <div className="edit-icon">
+                <FiEdit2 />
+              </div>
+            ) : (
+              <div className="bell-icon">
+                <BsBell />
+              </div>
+            )}
           </div>
         </Container>
         <Container className="profile-main-card-info">
@@ -38,23 +47,49 @@ const ProfileMainCard = ({ mainData }) => {
                   </div>
                 </div>
                 <div className="profile-connections mb-2">
-                  <a href="/">
-                    <span className="connections-number">96</span> Connections{" "}
-                  </a>
+                  {isMyProfile ? (
+                    <a href="/" className="connections-number">
+                      <span>96</span> Connections{" "}
+                    </a>
+                  ) : (
+                    <div className="connections-number">
+                      <span>500+</span> Connections
+                    </div>
+                  )}
                 </div>
-                <div className="profile-buttons d-flex">
-                  <div className="mr-2">
-                    <Button className="open-to-btn">Open to</Button>
+                {isMyProfile ? (
+                  <div className="profile-buttons d-flex">
+                    <div className="mr-2">
+                      <Button className="open-to-btn left-btn">Open to</Button>
+                    </div>
+                    <div className="mr-2">
+                      <Button className="add-profile-section-btn middle-btn">
+                        Add profile section
+                      </Button>
+                    </div>
+                    <div className="mr-2">
+                      <Button className="more-btn right-btn">More</Button>
+                    </div>
                   </div>
-                  <div className="mr-2">
-                    <Button className="add-profile-section-btn">
-                      Add profile section
-                    </Button>
+                ) : (
+                  <div className="profile-buttons d-flex">
+                    <div className="mr-2">
+                      <Button className="connect-btn left-btn d-flex align-items-center">
+                        <MdPersonAdd />
+                        <span className="ml-2"> Connect</span>
+                      </Button>
+                    </div>
+                    <div className="mr-2">
+                      <Button className="message-btn middle-btn d-flex align-items-center">
+                        <RiSendPlaneFill />{" "}
+                        <span className="ml-2">Message</span>
+                      </Button>
+                    </div>
+                    <div className="mr-2">
+                      <Button className="more-btn right-btn">More</Button>
+                    </div>
                   </div>
-                  <div className="mr-2">
-                    <Button className="more-btn">More</Button>
-                  </div>
-                </div>
+                )}
               </div>
             </Col>
             <Col xs={4}>
