@@ -11,8 +11,8 @@ export const getProfileAction = () => {
     method: "GET",
     headers: {
       Authorization:
-        // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhZTc1Y2U0OGY2MzAwMTUzYTUzMmIiLCJpYXQiOjE2NzEwOTYyMTMsImV4cCI6MTY3MjMwNTgxM30.7Rm2vX2T4244BipRvt_pccRXV7K35csrQyIsQsgfylE",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+        // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhZTc1Y2U0OGY2MzAwMTUzYTUzMmIiLCJpYXQiOjE2NzEwOTYyMTMsImV4cCI6MTY3MjMwNTgxM30.7Rm2vX2T4244BipRvt_pccRXV7K35csrQyIsQsgfylE",
     },
   };
   return async (dispatch, getState) => {
