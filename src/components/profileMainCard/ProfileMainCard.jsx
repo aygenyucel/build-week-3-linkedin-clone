@@ -7,7 +7,7 @@ import { MdPersonAdd } from "react-icons/md";
 
 const ProfileMainCard = ({ mainData, isMyProfile }) => {
   return (
-    <div className="profile-main-card mb-4">
+    <div className="profile-main-card mb-2">
       <div className="profile-main-card-background">
         <img
           src="/assets/profile-background-default.png"

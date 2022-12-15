@@ -8,7 +8,7 @@ const ExperienceCard = ({ experiences }) => {
   return (
     <div className="experience-card">
       <Container>
-        <div className="header-card mb-3"> Experience</div>
+        <div className="header-card mb-2"> Experience</div>
         {experiences.map((experience, index) => {
           return (
             <Container key={experience._id}>
