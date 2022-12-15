@@ -13,10 +13,9 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route path="/" element={<ProfilePage />} />
-          <Route path="/:id" element={<UserProfilePage />} />
-          <Route path="/feed" element={<FeedPage />} />
-          {/* <ProfilePage /> */}
+          <Route path="/feed" element={<FeedPage />} />         
+          <Route path="/profile/me" element={<ProfilePage />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
         </Routes>
         <Footer />
       </div>

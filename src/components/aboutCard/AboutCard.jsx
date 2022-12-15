@@ -5,7 +5,7 @@ const AboutCard = ({ bio }) => {
   return (
     <div className="about-card mb-2">
       <Container>
-        <div className="header-card mb-3">About</div>
+        <div className="header-card mb-2">About</div>
         <Container>
           <Row className="about-row">{bio}</Row>
         </Container>

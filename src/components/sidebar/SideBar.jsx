@@ -23,10 +23,6 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
-        const slicedData = data.slice(60, 70);
-        setProfiles(slicedData);
-        console.log(profiles);
         // console.log(data);
         // console.log(profiles);
       } else {
@@ -39,6 +35,7 @@ const SideBar = () => {
 
   useEffect(() => {
     fetchProfiles();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -101,6 +98,43 @@ const SideBar = () => {
                   </div>
                 </Link>
               </>
+
+              <div
+                className="viewers d-flex flex-column pt-0 mb-3"
+                key={profile._id}
+              >
+                <div className="d-flex ">
+                  <div className="viewer-picture">
+                    <Link to={`/profile/${profile._id}`}>
+                      <img
+                        className="linkedin-user-image pro-pic br-100"
+                        src={profile.image}
+                        alt="pro-pic"
+                        width={60}
+                        height={60}
+                      />
+                    </Link>
+                  </div>
+
+                  <div className="viewer-job-description">
+                    <div className=" ml-2">
+                      <Link to={`/profile/${profile._id}`}>
+                        <p className="align-top pt-0 mb-1 bigger-font">
+                          {profile.name} {profile.surname}
+                        </p>
+                      </Link>
+                      <p className="text-secondary">{profile.title}</p>
+                      <p className="text-secondary"> {profile.area}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <span className="align-self-center">
+                  <button className="message mt-3 opaque-much">
+                    <SendFill className="plus-icon opaque-much" /> Message
+                  </button>
+                </span>
+              </div>
             );
           })}
         </Col>

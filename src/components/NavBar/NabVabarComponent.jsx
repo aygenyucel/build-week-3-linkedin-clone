@@ -12,6 +12,7 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfilesListAction } from "../../redux/actions";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const selector = useSelector((state) => state.profile.data);
@@ -24,6 +25,7 @@ const NavBar = () => {
 
   useEffect(() => {
     dispatch(getProfilesListAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (e) => {
@@ -96,19 +98,20 @@ const NavBar = () => {
                     <p>Notifications</p>
                   </div>
                 </Nav.Link>
-
-                <Nav.Link href="#">
-                  <div className="menu-links">
-                    <div className="profile-pic-container">
-                      <img
-                        className="profile-pic"
-                        src={selector.image}
-                        alt=""
-                      />
+                <Link to={"/profile/me"}>
+                  <div className="nav-link">
+                    <div className="menu-links">
+                      <div className="profile-pic-container">
+                        <img
+                          className="profile-pic"
+                          src={selector.image}
+                          alt=""
+                        />
+                      </div>
+                      <p>Me</p>
                     </div>
-                    <p>Me</p>
                   </div>
-                </Nav.Link>
+                </Link>
                 <Nav.Link href="#">
                   <div className="menu-links">
                     <AiOutlineAppstore className="menu-links" size={24} />

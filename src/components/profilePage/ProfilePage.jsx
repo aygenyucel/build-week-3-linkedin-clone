@@ -5,35 +5,81 @@ import "./profilePage.css";
 import ExperienceCard from "../experienceCard/ExperienceCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getExperiencesAction, getProfileAction } from "../../redux/actions";
+import {
+  getExperiencesAction,
+  getProfileAction,
+  getUserExperiencesAction,
+  getUserProfileAction,
+} from "../../redux/actions";
 import AboutCard from "../aboutCard/AboutCard";
+import { useLocation, useParams } from "react-router-dom";
 
 const ProfilePage = () => {
-  const experiencesData = useSelector((state) => state.profile.experiencesData);
-  const mainData = useSelector((state) => state.profile.data);
   const dispatch = useDispatch();
+  const params = useParams();
+  const location = useLocation();
+  const dynamicUrl = location.pathname.slice(
+    location.pathname.lastIndexOf("/") + 1,
+    location.pathname.length
+  );
+
+  //getting the datas for own profile
+  const profileMainData = useSelector((state) => state.profile.data);
+  const profileExperiencesData = useSelector(
+    (state) => state.profile.experiencesData
+  );
+
+  //getting the datas for other users' profile
+  const userMainData = useSelector((state) => state.usersProfile.userData);
+  const userExperiencesData = useSelector(
+    (state) => state.usersProfile.userExperiencesData
+  );
 
   useEffect(() => {
-    dispatch(getExperiencesAction());
-    dispatch(getProfileAction());
-    console.log("mainData", mainData);
-    console.log("experiencesData", experiencesData);
+    if (dynamicUrl === "me") {
+      dispatch(getExperiencesAction());
+      dispatch(getProfileAction());
+    } else {
+      dispatch(getUserProfileAction(params.id));
+      dispatch(getUserExperiencesAction(params.id));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dynamicUrl]);
 
   return (
     <>
-      <Container className="d-flex mt-2">
-        <div className="main-card-div">
-          <ProfileMainCard />
-          <AboutCard bio={mainData.bio} />
-          <ExperienceCard experiences={experiencesData} />
-        </div>
+      {dynamicUrl === "me" ? (
+        <Container className="d-flex mt-2">
+          <div className="main-card-div">
+            <ProfileMainCard mainData={profileMainData} isMyProfile={true} />
+            {/* checking if there are any bio */}
+            {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
+            {/* checking if there are any experiences */}
+            {profileExperiencesData.length !== 0 && (
+              <ExperienceCard experiences={profileExperiencesData} />
+            )}
+          </div>
+          <div className="sidebar-div">
+            <SideBar />
+          </div>
+        </Container>
+      ) : (
+        <Container className="d-flex mt-2">
+          <div className="main-card-div">
+            <ProfileMainCard mainData={userMainData} />
+            {/* checking if there are any bio */}
+            {userMainData.bio && <AboutCard bio={userMainData.bio} />}
+            {/* checking if there are any experiences */}
+            {userExperiencesData.length !== 0 && (
+              <ExperienceCard experiences={userExperiencesData} />
+            )}
+          </div>
 
-        <div className="sidebar-div">
-          <SideBar />
-        </div>
-      </Container>
+          <div className="sidebar-div">
+            <SideBar />
+          </div>
+        </Container>
+      )}
     </>
   );
 };
