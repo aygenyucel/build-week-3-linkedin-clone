@@ -5,8 +5,7 @@ export const GET_PROFILE_USER = "GET_PROFILE_USER";
 export const GET_EXPERIENCES_USER = "GET_EXPERIENCES_USER";
 export const GET_PROFILES_LIST = " GET_PROFILES_LIST";
 export const GET_POSTS_LIST = "GET_POSTS_LIST";
-export const EDIT_PROFILE = "EDIT_PROFILE"
-
+export const EDIT_PROFILE = "EDIT_PROFILE";
 
 export const getProfileAction = () => {
   const options = {
@@ -161,7 +160,6 @@ export const getProfilesListAction = () => {
   };
 };
 
-
 export const getFeedPostsAction = () => {
   return async (dispatch) => {
     const options = {
@@ -184,40 +182,6 @@ export const getFeedPostsAction = () => {
           type: GET_POSTS_LIST,
           payload: chunkOfPosts,
         });
-
-export const updateEditAction = (name, surname, bio, title, area) => {
-   
-  const changedDetails = {
-    name: name,
-    surname: surname,
-    bio: bio,
-    title: title,
-    area: area,
-  };
-
-  return async (dispatch) => {
-
-    const optionPut = {
-      method: 'PUT',
-      body: JSON.stringify(changedDetails),
-      headers: {
-      Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
-      "Content-Type": "application/json"
-
-  }}
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        optionPut
-      );
-      if (response.ok) {
-        let data = await response.json()
-        dispatch ({
-          type: EDIT_PROFILE,
-        });
-        alert("Profile was updated!");
-
       } else {
         console.log(`something went wrong`);
       }
@@ -227,6 +191,44 @@ export const updateEditAction = (name, surname, bio, title, area) => {
   };
 };
 
+export const updateEditAction = (name, surname, bio, title, area) => {
+  const changedDetails = {
+    name: name,
+    surname: surname,
+    bio: bio,
+    title: title,
+    area: area,
+  };
+
+  return async (dispatch) => {
+    const optionPut = {
+      method: "PUT",
+      body: JSON.stringify(changedDetails),
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/",
+        optionPut
+      );
+      if (response.ok) {
+        let data = await response.json();
+        dispatch({
+          type: EDIT_PROFILE,
+        });
+        alert("Profile was updated!");
+      } else {
+        console.log(`something went wrong`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const createNewPostAction = (textPost) => {
   return async () => {
@@ -311,21 +313,3 @@ export const editPostAction = (idPost, textPost) => {
     }
   };
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
