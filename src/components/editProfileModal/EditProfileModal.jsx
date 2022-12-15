@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateEditAction } from "../../redux/actions";
 import { getProfileAction } from "../../redux/actions";
 
-const EditProfileModal = (element) => {
+const EditProfileModal = ({tim}) => {
   const selector = useSelector((state) => state.edit.currentState);
   const formerSelector = useSelector((state) => state.profile.data);
   // const [editedPost, setEditedPost] = useState("");
@@ -19,7 +19,7 @@ const EditProfileModal = (element) => {
   const [title, setTitle] = useState(``);
   const [area, setArea] = useState(``);
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(tim);
 
   const dispatch = useDispatch();
 

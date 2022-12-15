@@ -9,12 +9,12 @@ import { useEffect, useState } from "react";
 import { getProfileAction } from "../../redux/actions";
 import EditProfileModal from "../editProfileModal/EditProfileModal";
 
-const ProfileMainCard = () => {
+
+
+const ProfileMainCard = ({ mainData, isMyProfile }) => {
 
   const [show, setShow] = useState(false)
   const dispatch = useDispatch();
-
-const ProfileMainCard = ({ mainData, isMyProfile }) => {
   return (
     <div className="profile-main-card mb-2">
       <div className="profile-main-card-background">
@@ -33,7 +33,7 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
             {isMyProfile ? (
               <div className="edit-icon">
                  <Button className="edit-icon" onClick={() => setShow(true)}>
-                  <EditProfileModal show={show}/>
+                  <EditProfileModal tim={show}/>
                   <FiEdit2 />
                 </Button>
               </div>
@@ -126,5 +126,4 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
     </div>
   );
 };
-
 export default ProfileMainCard;
