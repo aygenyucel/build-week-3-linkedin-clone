@@ -20,7 +20,7 @@ const ExperienceCard = ({ experiences }) => {
                   <div className="mr-2">
                     <div className="company-logo">
                       <img
-                        src="assets/company-logo-default.png"
+                        src="/assets/company-logo-default.png"
                         alt="company logo"
                       />
                     </div>

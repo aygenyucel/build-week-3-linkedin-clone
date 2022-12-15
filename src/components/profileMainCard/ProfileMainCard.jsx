@@ -19,7 +19,7 @@ const ProfileMainCard = () => {
     <div className="profile-main-card mb-4">
       <div className="profile-main-card-background">
         <img
-          src="assets/profile-background-default.png"
+          src="/assets/profile-background-default.png"
           alt="profile background"
         />
         <div className="profile-img">
@@ -73,7 +73,7 @@ const ProfileMainCard = () => {
               <div className="company-info d-flex align-items-center">
                 <div className="company-logo mr-2">
                   <img
-                    src="assets/company-logo-default.png"
+                    src="/assets/company-logo-default.png"
                     alt="company-logo"
                   />
                 </div>

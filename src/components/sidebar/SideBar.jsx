@@ -64,7 +64,7 @@ const SideBar = () => {
           {profiles?.map((profile) => {
             return (
               <>
-                <Link to={`/${profile._id}`}>
+                <Link to={`/profile/${profile._id}`}>
                   <div
                     className="viewers d-flex flex-column pt-0 mb-3"
                     key={profile._id}
