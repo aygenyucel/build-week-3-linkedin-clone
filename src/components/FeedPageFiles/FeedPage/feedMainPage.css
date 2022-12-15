@@ -3,3 +3,15 @@ button {
   border: none;
   border-radius: 5px;
 }
+
+.profileBar {
+  width: 30vw;
+}
+.main-content {
+  width: 40vw;
+}
+
+.side-footer {
+  width: 30vw;
+  background: cadetblue;
+}

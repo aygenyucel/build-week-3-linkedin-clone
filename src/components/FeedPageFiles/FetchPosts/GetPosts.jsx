@@ -7,7 +7,6 @@ import "./getPosts.css";
 const GetPosts = () => {
   const dispatch = useDispatch();
   let feedPosts = useSelector((state) => state.feedPosts.feedPosts);
-  console.log(feedPosts);
 
   useEffect(() => {
     dispatch(getFeedPostsAction());
@@ -19,11 +18,11 @@ const GetPosts = () => {
         {feedPosts.map((element, index) => (
           <div className="post-div mb-2" key={element._id}>
             <div className="d-flex">
-              <div className="profile-img-post p-2 mt-2">
+              <div className="profile-img-post-feed  mt-2">
                 <img src={element.user.image} alt="img" />
               </div>
               <div>
-                <div className=" p-2 d-flex align-items-center flex-column">
+                <div className=" p-2 d-flex  flex-column">
                   <p className="ml-1 name-user-p">
                     <strong>{element.username}</strong>
                   </p>
