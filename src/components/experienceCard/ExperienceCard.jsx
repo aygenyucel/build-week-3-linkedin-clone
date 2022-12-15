@@ -2,25 +2,22 @@
 import { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import "./experienceCard.css";
+import { format } from "date-fns";
 
 const ExperienceCard = ({ experiences }) => {
-  useEffect(() => {
-    console.log(experiences);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div className="experience-card">
       <Container>
-        <div className="header-card mb-3"> Experience</div>
+        <div className="header-card mb-2"> Experience</div>
         {experiences.map((experience, index) => {
           return (
-            <>
-              <Container key={experience.id}>
+            <Container key={experience._id}>
+              <div>
                 <Row className="experience-row">
                   <div className="mr-2">
                     <div className="company-logo">
                       <img
-                        src="assets/company-logo-default.png"
+                        src="/assets/company-logo-default.png"
                         alt="company logo"
                       />
                     </div>
@@ -34,11 +31,14 @@ const ExperienceCard = ({ experiences }) => {
                         </div>
                         <div className="experience-date d-flex justify-content-center align-items-center">
                           <div className="experience-start-date">
-                            {experience.startDate}
+                            {format(
+                              Date.parse(experience.startDate),
+                              "MMM yyyy"
+                            )}
                           </div>
-                          <div className="text-divider" />
+                          <div className="mx-2">-</div>
                           <div className="experience-end-date">
-                            {experience.endDate}
+                            {format(Date.parse(experience.endDate), "MMM yyyy")}
                           </div>
                         </div>
                       </div>
@@ -48,9 +48,9 @@ const ExperienceCard = ({ experiences }) => {
                     </div>
                   </div>
                 </Row>
-              </Container>
+              </div>
               {index + 1 !== experiences.length && <hr />}
-            </>
+            </Container>
           );
         })}
       </Container>

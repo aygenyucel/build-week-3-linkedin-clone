@@ -1,4 +1,5 @@
 export const GET_PROFILE = "GET_PROFILE";
+export const GET_PROFILE_ID = "GET_PROFILE_ID";
 export const GET_EXPERIENCES = "GET_EXPERIENCES";
 export const GET_PROFILE_USER = "GET_PROFILE_USER";
 export const GET_EXPERIENCES_USER = "GET_EXPERIENCES_USER";
@@ -10,7 +11,8 @@ export const getProfileAction = () => {
     method: "GET",
     headers: {
       Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+        // "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzlhZTc1Y2U0OGY2MzAwMTUzYTUzMmIiLCJpYXQiOjE2NzEwOTYyMTMsImV4cCI6MTY3MjMwNTgxM30.7Rm2vX2T4244BipRvt_pccRXV7K35csrQyIsQsgfylE",
     },
   };
   return async (dispatch, getState) => {
@@ -21,10 +23,14 @@ export const getProfileAction = () => {
       );
       if (response.ok) {
         const profileData = await response.json();
-        console.log("Get user profile", profileData);
+        // console.log("Get user profile:", profileData);
         dispatch({
           type: GET_PROFILE,
           payload: profileData,
+        });
+        dispatch({
+          type: GET_PROFILE_ID,
+          payload: profileData._id,
         });
       } else {
         console.log("Error fetching data");
@@ -51,7 +57,7 @@ export const getExperiencesAction = () => {
       );
       if (response.ok) {
         const experiencesData = await response.json();
-        console.log("Get user profile", experiencesData);
+        // console.log("Get user profile", experiencesData);
         dispatch({
           type: GET_EXPERIENCES,
           payload: experiencesData,
@@ -81,7 +87,7 @@ export const getUserProfileAction = (userId) => {
       );
       if (response.ok) {
         const userProfileData = await response.json();
-        console.log("Get another user profile", userProfileData);
+        // console.log("Get another user profile", userProfileData);
         dispatch({
           type: GET_PROFILE_USER,
           payload: userProfileData,
@@ -111,7 +117,6 @@ export const getUserExperiencesAction = (userId) => {
       );
       if (response.ok) {
         const userExperiencesData = await response.json();
-        console.log("Get another user experience", userExperiencesData);
         dispatch({
           type: GET_EXPERIENCES_USER,
           payload: userExperiencesData,
