@@ -88,7 +88,7 @@ const ProfilePage = () => {
             {/* checking if there are any bio */}
             {userMainData.bio && <AboutCard bio={userMainData.bio} />}
             {/* checking if there are any experiences */}
-            {userExperiencesData.length !== 0 && (
+            {userExperiencesData && userExperiencesData.length > 0 && (
               <ExperienceCard experiences={userExperiencesData} />
             )}
             <EducationCard />

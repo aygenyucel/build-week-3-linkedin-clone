@@ -62,11 +62,8 @@ const SideBar = () => {
           <p className="text-dark font-w-bold">People also viewed</p>
           {profiles?.map((profile) => {
             return (
-              <>
-                <div
-                  className="viewers d-flex flex-column pt-0 mb-3"
-                  key={profile._id}
-                >
+              <div key={profile._id}>
+                <div className="viewers d-flex flex-column pt-0 mb-3">
                   <div className="d-flex ">
                     <div className="viewer-picture">
                       <img
@@ -134,7 +131,7 @@ const SideBar = () => {
                     </button>
                   </span>
                 </div>
-              </>
+              </div>
             );
           })}
         </Col>
