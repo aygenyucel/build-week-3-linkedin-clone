@@ -83,24 +83,26 @@ const ProfilePage = () => {
           </Container>
         </>
       ) : (
-        <Container className="d-flex mt-2">
-          <div className="main-card-div">
-            <ProfileMainCard mainData={userMainData} />
-            {/* checking if there are any bio */}
-            {userMainData.bio && <AboutCard bio={userMainData.bio} />}
-            {/* checking if there are any experiences */}
-            {userExperiencesData && userExperiencesData.length > 0 && (
-              <ExperienceCard experiences={userExperiencesData} />
-            )}
-            <EducationCard />
-            <LanguagesCard />
-          </div>
+        <>
+          <Container className="d-flex mt-2">
+            <div className="main-card-div">
+              <ProfileMainCard mainData={userMainData} />
+              {/* checking if there are any bio */}
+              {userMainData.bio && <AboutCard bio={userMainData.bio} />}
+              {/* checking if there are any experiences */}
+              {userExperiencesData && userExperiencesData.length > 0 && (
+                <ExperienceCard experiences={userExperiencesData} />
+              )}
+              <EducationCard />
+              <LanguagesCard />
+            </div>
 
-          <div className="sidebar-div">
-            <SideBar />
-          </div>
+            <div className="sidebar-div">
+              <SideBar />
+            </div>
+          </Container>
           <Footer />
-        </Container>
+        </>
       )}
     </>
   );
