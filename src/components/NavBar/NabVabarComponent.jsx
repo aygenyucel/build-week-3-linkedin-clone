@@ -69,7 +69,7 @@ const NavBar = () => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">
+                <Nav.Link href="/">
                   <div className="menu-links">
                     <HiHome className="menu-links" size={23} />
                     <p>Home</p>

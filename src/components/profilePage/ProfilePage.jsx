@@ -79,6 +79,7 @@ const ProfilePage = () => {
                 <SideBar />
               </div>
             </div>
+            <Footer />
           </Container>
         </>
       ) : (
@@ -98,6 +99,7 @@ const ProfilePage = () => {
           <div className="sidebar-div">
             <SideBar />
           </div>
+          <Footer />
         </Container>
       )}
     </>
