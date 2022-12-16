@@ -8,7 +8,7 @@ import { ChevronCompactDown } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
-    <footer className="text-white py-4">
+    <div className="footer-div text-white py-4">
       <Container>
         <div className="row">
           <Image
@@ -21,78 +21,85 @@ height={60}
           />
         </div>
         <Row className="pt-2 pl-4">
-          <ul className="col-2 list-unstyled">
-            <li>
-              <a href="" className="footer_link">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Community Guidelines
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Privacy &amp; Terms {<ChevronCompactDown />}
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Sales Solutions
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Safety Center
-              </a>
-            </li>
-          </ul>
-          <ul className="col-2 list-unstyled">
-            <li>
-              <a href="" className="footer_link">
-                Accessibility
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Careers
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Ad Choices
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Mobile
-              </a>
-            </li>
-          </ul>
-          <ul className="col-2 list-unstyled">
-            <li>
-              <a href="" className="footer_link">
-                Talent Solutions
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Marketing Solutions
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Advertising
-              </a>
-            </li>
-            <li>
-              <a href="" className="footer_link">
-                Small bussiness
-              </a>
-            </li>
-          </ul>
-          <Col xs={4}>
+          <Col xs={6} md={3}>
+            <ul className=" list-unstyled">
+              <li>
+                <a href="" className="footer_link">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Community Guidelines
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Privacy &amp; Terms {<ChevronCompactDown />}
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Sales Solutions
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Safety Center
+                </a>
+              </li>
+            </ul>
+          </Col>
+          <Col xs={6} md={3}>
+            <ul className=" list-unstyled">
+              <li>
+                <a href="" className="footer_link">
+                  Accessibility
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Ad Choices
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Mobile
+                </a>
+              </li>
+            </ul>
+          </Col>
+          <Col xs={6} md={3}>
+            <ul className=" list-unstyled">
+              <li>
+                <a href="" className="footer_link">
+                  Talent Solutions
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Marketing Solutions
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Advertising
+                </a>
+              </li>
+              <li>
+                <a href="" className="footer_link">
+                  Small bussiness
+                </a>
+              </li>
+            </ul>
+          </Col>
+
+          <Col xs={12} md={2}>
             <ul className="list-unstyled">
               <li>
                 <QuestionCircleFill size={20} className="text-dark" />
@@ -112,7 +119,7 @@ height={60}
               </li>
             </ul>
           </Col>
-          <Col xs={2}>
+          <Col xs={12} md={2}>
             <label htmlFor="language" className="footer_label">
               Select Language
             </label>
@@ -128,11 +135,11 @@ height={60}
             </DropdownButton>
           </Col>
         </Row>
-        <p className="footer_label ml-4">
+        <p className="footer_label ml-4 mt-3">
           Linkedin Corporation @ {new Date().getFullYear()}
         </p>
       </Container>
-    </footer>
+    </div>
   );
 };
 

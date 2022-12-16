@@ -50,3 +50,28 @@
   font-size: 0.9rem;
   color: var(--color-text-dark-gray);
 }
+
+.second-card {
+  color: var(--color-text-dark-gray);
+  margin: 3px;
+}
+
+.second-card p {
+  font-size: 0.9rem;
+}
+
+.events {
+  color: var(--primary-color);
+}
+
+.bolder {
+  font-weight: bolder;
+}
+.main-container-profile-bar {
+  width: 100%;
+}
+@media screen and (max-width: 780px) {
+  .second-card-main {
+    display: none;
+  }
+}

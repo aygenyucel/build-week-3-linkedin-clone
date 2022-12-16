@@ -52,7 +52,7 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
   const dispatch = useDispatch();
   return (
     <div className="profile-main-card custom-card pt-0">
-      <div className="profile-main-card-background">
+      <div className="profile-main-card-background position-relative">
         <img
           src="/assets/profile-background-default.png"
           alt="profile background"

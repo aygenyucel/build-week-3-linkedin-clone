@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 // import { getProfilesListAction } from "../../redux/actions/index";
 
 const SideBar = () => {
-  const [profiles, setProfiles] = useState(null);
+  const [profiles, setProfiles] = useState([]);
   const options = {
     method: "GET",
     headers: {
@@ -25,8 +25,7 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        const slicedData = data.slice(15,25)
-        setProfiles(slicedData);
+        setProfiles(data.slice(0, 6));
       } else {
         console.log(`something went wrong`);
       }
@@ -37,6 +36,7 @@ const SideBar = () => {
 
   useEffect(() => {
     fetchProfiles();
+    console.log("xxx", profiles);
     // getProfilesListAction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -61,13 +61,10 @@ const SideBar = () => {
       <div className="viewer-profiles">
         <Col className="pl-2">
           <p className="text-dark font-w-bold">People also viewed</p>
-          {profiles?.map((profile) => {
+          {profiles.map((profile) => {
             return (
-              <>
-                <div
-                  className="viewers d-flex flex-column pt-0 mb-3"
-                  key={profile._id}
-                >
+              <div key={profile._id}>
+                <div className="viewers d-flex flex-column pt-0 mb-3">
                   <div className="d-flex ">
                     <div className="viewer-picture">
                       <img
@@ -99,10 +96,7 @@ const SideBar = () => {
                   </span>
                 </div>
 
-                <div
-                  className="viewers d-flex flex-column pt-0 mb-3"
-                  key={profile._id}
-                >
+                <div className="viewers d-flex flex-column pt-0 mb-3">
                   <div className="d-flex ">
                     <div className="viewer-picture">
                       <Link to={`/profile/${profile._id}`}>
@@ -135,7 +129,7 @@ const SideBar = () => {
                     </button>
                   </span>
                 </div>
-              </>
+              </div>
             );
           })}
         </Col>

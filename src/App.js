@@ -16,7 +16,6 @@ function App() {
           <Route path="/profile/me" element={<ProfilePage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
         </Routes>
-        <Footer />
       </div>
     </BrowserRouter>
   );
