@@ -1,22 +1,35 @@
+:root {
+  --primary-color: #0a66c2;
+  --color-text-gray: #929292;
+  --color-text-dark-gray: #6e6e6e;
+  --card-border: 1px solid #dcdcdc;
+  --color-btn-hover: #e2f0fe;
+  --color-gray-btn-hover: #ebebeb;
+  --color-background: #f3f2ef;
+  --color-background-card: #ffffff;
+}
+
 .sidebar-right {
-  width: fit-content;
   font-size: 15px;
   border-radius: 10px;
-}
-.sidebar-right {
-  width: 322px;
+  background-color: var(--color);
+  padding-right: 15px;
+  width: 100%;
 }
 
 .content-div1 {
   width: 100%;
   font-size: 15px;
   border-radius: 10px;
-  padding-left: 10px;
-  margin-left: 0px;
   border: 1px solid lightgray;
+  background-color: var(--color-background-card);
+}
+
+.viewer-profiles .header-card {
+  font-size: 1.3rem;
 }
 .viewer-profiles {
-  padding-left: 10px;
+  background-color: var(--color-background-card);
   margin-top: 10px;
   height: fit-content;
   width: 100%;
@@ -58,4 +71,27 @@
 
 .opaque-much {
   opacity: 0.8;
+}
+
+.viewer-picture img {
+  font-size: 0.9rem;
+}
+
+.message-btn {
+  font-weight: 600;
+  border-radius: 50px;
+  padding-inline: 17px;
+  padding-block: 4px;
+}
+
+.message-btn {
+  border: 1px solid var(--color-text-gray);
+  color: var(--color-text-gray);
+  background-color: transparent;
+}
+
+.message-btn:hover {
+  border: 1px solid var(--color-text-gray);
+  background-color: var(--color-gray-btn-hover);
+  color: var(--color-text-gray);
 }

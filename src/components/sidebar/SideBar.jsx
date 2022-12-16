@@ -3,7 +3,6 @@ import "./sidebar.css";
 import { Col, Container, Row } from "react-bootstrap";
 import { QuestionCircleFill } from "react-bootstrap-icons";
 import { SendFill } from "react-bootstrap-icons";
-import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 // import { getProfilesListAction } from "../../redux/actions/index";
 
@@ -25,7 +24,7 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        setProfiles(data.slice(0, 6));
+        setProfiles(data.slice(0, 5));
       } else {
         console.log(`something went wrong`);
       }
@@ -42,99 +41,88 @@ const SideBar = () => {
   }, []);
 
   return (
-    <Container className="sidebar-right">
-      <div className="content-div1">
+    <Container className="sidebar-right ">
+      <div className="content-div1 custom-card">
         <Col className="content-Col">
-          <Row className="content-Row">
-            <p className="mt-3">
-              Edit public profile & URL <QuestionCircleFill />
-            </p>
+          <Row className="content-Row d-flex justify-content-between">
+            <div className="header-small ml-4 ">
+              <div className="text-light-grey" style={{ cursor: "pointer" }}>
+                Edit public profile & URL
+              </div>
+            </div>
+            <div className="mr-2" style={{ cursor: "pointer" }}>
+              <QuestionCircleFill />
+            </div>
           </Row>
-          <div className="trans-line"></div>
+          {/* <div className="trans-line"></div>
           <Row className="content-Row">
             <p className="mt-3">
               Add profile in another language <QuestionCircleFill />
             </p>
-          </Row>
+          </Row> */}
         </Col>
       </div>
       <div className="viewer-profiles">
-        <Col className="pl-2">
-          <p className="text-dark font-w-bold">People also viewed</p>
-          {profiles.map((profile) => {
+        <Col className="py-3 px-4">
+          <p className=" mb-4 header-card">People also viewed</p>
+          {profiles.map((profile, index) => {
             return (
               <div key={profile._id}>
                 <div className="viewers d-flex flex-column pt-0 mb-3">
                   <div className="d-flex ">
-                    <div className="viewer-picture">
+                    <div className="viewer-picture mr-2">
                       <img
                         className="linkedin-user-image pro-pic br-100"
                         src={profile.image}
                         alt="pro-pic"
-                        width={60}
-                        height={60}
+                        width={55}
+                        height={55}
                       />
                     </div>
 
-                    <div className="viewer-job-description">
+                    <div className="viewer-job-description d-flex flex-column">
                       <a href={`/profile/${profile._id}`}>
                         <div className=" ml-2">
-                          <p className="align-top pt-0 mb-1 bigger-font">
+                          <p
+                            className="align-top pt-0 mb-1 bigger-font header-small"
+                            style={{ fontSize: "0.9rem" }}
+                          >
                             {profile.name} {profile.surname}
                           </p>
-                          <p className="text-secondary">{profile.title}</p>
-                          <p className="text-secondary"> {profile.area}</p>
+                          <p
+                            className="text-secondary text-light-grey"
+                            style={{ fontWeight: "400" }}
+                          >
+                            {profile.title}
+                          </p>
+                          <p
+                            className="text-secondary text-light-grey"
+                            style={{ fontWeight: "400" }}
+                          >
+                            {" "}
+                            {profile.area}
+                          </p>
                         </div>
                       </a>
-                    </div>
-                  </div>
-
-                  <span className="align-self-center">
-                    <button className="message mt-3 opaque-much">
-                      <SendFill className="plus-icon opaque-much" /> Message
-                    </button>
-                  </span>
-                </div>
-
-                <div className="viewers d-flex flex-column pt-0 mb-3">
-                  <div className="d-flex ">
-                    <div className="viewer-picture">
-                      <Link to={`/profile/${profile._id}`}>
-                        <img
-                          className="linkedin-user-image pro-pic br-100"
-                          src={profile.image}
-                          alt="pro-pic"
-                          width={60}
-                          height={60}
-                        />
-                      </Link>
-                    </div>
-
-                    <div className="viewer-job-description">
-                      <div className=" ml-2">
-                        <Link to={`/profile/${profile._id}`}>
-                          <p className="align-top pt-0 mb-1 bigger-font">
-                            {profile.name} {profile.surname}
-                          </p>
-                        </Link>
-                        <p className="text-secondary">{profile.title}</p>
-                        <p className="text-secondary"> {profile.area}</p>
+                      <div>
+                        <div className="align-self-center">
+                          <button className=" mt-3 message-btn">
+                            <span className="mr-2">
+                              <SendFill className="plus-icon opaque-much" />
+                            </span>
+                            Message
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  <span className="align-self-center">
-                    <button className="message mt-3 opaque-much">
-                      <SendFill className="plus-icon opaque-much" /> Message
-                    </button>
-                  </span>
                 </div>
+                {index + 1 !== profiles.length && <hr />}
               </div>
             );
           })}
         </Col>
       </div>
-      <hr className="horizontal-row" />
     </Container>
   );
 };

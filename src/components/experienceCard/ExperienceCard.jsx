@@ -7,7 +7,10 @@ import { Button } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
 import { Modal, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { updateExperienceAction, deleteExperienceAction } from "../../redux/actions";
+import {
+  updateExperienceAction,
+  deleteExperienceAction,
+} from "../../redux/actions";
 import { useParams } from "react-router";
 
 const ExperienceCard = ({ experiences }) => {
@@ -22,19 +25,17 @@ const ExperienceCard = ({ experiences }) => {
   const [endDate, setEndDate] = useState(``);
   const [description, setDescription] = useState(``);
 
-  console.log(role, company, startDate, endDate, description)
+  console.log(role, company, startDate, endDate, description);
 
   const updateAction = () => {
-    dispatch(
-      updateExperienceAction(experiences, params.id)
-    );
+    dispatch(updateExperienceAction(experiences, params.id));
     setShow(false);
   };
 
   const deleteAction = () => {
     dispatch(deleteExperienceAction(params.id));
-    setShow(false)
-  }
+    setShow(false);
+  };
 
   const handleChangeRole = (e) => {
     setRole(e.target.value);
@@ -87,21 +88,24 @@ const ExperienceCard = ({ experiences }) => {
                           onChange={handleChangeRole}
                           type="text"
                           placeholder="Enter role"
-                          value={role} required
+                          value={role}
+                          required
                         ></Form.Control>
                         <Form.Label>Company*</Form.Label>
                         <Form.Control
                           onChange={handleChangeCompany}
                           type="text"
                           placeholder="Enter company name"
-                          value={company} required
+                          value={company}
+                          required
                         ></Form.Control>
                         <Form.Label>Start Date*</Form.Label>
                         <Form.Control
                           onChange={handleChangeStartDate}
                           type="date"
                           placeholder="Start Date"
-                          value={startDate} required
+                          value={startDate}
+                          required
                         ></Form.Control>
                         <Form.Label>End date</Form.Label>
                         <Form.Control
@@ -115,7 +119,8 @@ const ExperienceCard = ({ experiences }) => {
                           onChange={handleChangeDescription}
                           type="text"
                           placeholder="Enter description"
-                          value={description} required
+                          value={description}
+                          required
                         ></Form.Control>
                         <Button
                           variant="primary"
@@ -154,14 +159,16 @@ const ExperienceCard = ({ experiences }) => {
                         </div>
                         <div className="experience-date d-flex justify-content-center align-items-center">
                           <div className="experience-start-date">
-                            {format(
+                            {/* {format(
                               Date.parse(experience.startDate),
                               "MMM yyyy"
-                            )}
+                            )} */}
+                            Dec 2020
                           </div>
                           <div className="mx-2">-</div>
                           <div className="experience-end-date">
-                            {format(Date.parse(experience.endDate), "MMM yyyy")}
+                            {/* {format(Date.parse(experience.endDate), "MMM yyyy")} */}
+                            Mar 2021
                           </div>
                         </div>
                       </div>
