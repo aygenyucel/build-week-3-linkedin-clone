@@ -30,21 +30,21 @@ const CreateNewPost = ({ mainData }) => {
 
   return (
     <>
-      <Row>
-        <div className="create-post-div">
-          <div className="d-flex justify-content-center">
-            <div className="profile-img-post-top p-2 mt-2">
-              <img src={mainData.image} alt="profile img" />
-            </div>
-            <div className="p-2 mt-2">
-              <div
-                className="fake-input p-2 d-flex align-items-center"
-                onClick={handleShow}
-              >
-                <p className="ml-1">Start a post</p>
-              </div>
+      <div className="create-post-div">
+        <div className="d-flex justify-content-center fake-input-container">
+          <div className="profile-img-post-top p-2 mt-2">
+            <img src={mainData.image} alt="profile img" />
+          </div>
+          <div className="p-2 mt-2 ">
+            <div
+              className="fake-input p-2 d-flex align-items-center"
+              onClick={handleShow}
+            >
+              <p className="ml-1">Start a post</p>
             </div>
           </div>
+        </div>
+        <div className="main-div-icons">
           <div className="d-flex justify-content-around mt-4">
             <div className="div-icons-post d-flex justify-content-around align-items-center">
               <div>
@@ -80,8 +80,8 @@ const CreateNewPost = ({ mainData }) => {
             </div>
           </div>
         </div>
-      </Row>
-      <Row></Row>
+      </div>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create a post</Modal.Title>
