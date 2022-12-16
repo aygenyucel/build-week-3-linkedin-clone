@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import CreateNewPost from "../createNewPost/CreateNewPost";
 import GetPosts from "../FetchPosts/GetPosts";
 import GetMyPosts from "../GetMyPosts/GetMyPosts";
@@ -12,8 +12,6 @@ import { getProfileAction } from "../../../redux/actions";
 import RightSideBar from "../rightSideBar/RightSideBar";
 
 const FeedMainPage = () => {
-
-
   const [myPosts, setMyPosts] = useState(false);
   const handleChange = () => {
     setMyPosts(!myPosts);
@@ -25,23 +23,25 @@ const FeedMainPage = () => {
   useEffect(() => {
     dispatch(getProfileAction());
   }, []);
-
   return (
-
-    <Container className="d-flex mt-3">
-      <div className="profileBar">
-        <ProfileBar mainData={profileMainData} />
-      </div>
-      <div className="main-content">
-        <CreateNewPost mainData={profileMainData} />
-        <button onClick={handleChange}>
-          {myPosts ? "See all posts" : "See my posts"}
-          <MdKeyboardArrowDown size={25} />
-        </button>
-        {myPosts ? <GetMyPosts /> : <GetPosts />}
-      </div>
-      <div className="side-footer"><RightSideBar /></div>
-
+    <>
+      <Container className="d-flex mt-3">
+        <div className="profileBar">
+          <ProfileBar mainData={profileMainData} />
+        </div>
+        <div className="main-content">
+          <CreateNewPost mainData={profileMainData} />
+          <button onClick={handleChange}>
+            {myPosts ? "See all posts" : "See my posts"}
+            <MdKeyboardArrowDown size={25} />
+          </button>
+          {myPosts ? <GetMyPosts /> : <GetPosts />}
+        </div>
+        <div className="side-footer">
+          <RightSideBar />
+        </div>
+      </Container>
+    </>
   );
 };
 

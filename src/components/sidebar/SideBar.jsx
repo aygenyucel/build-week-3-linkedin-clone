@@ -5,7 +5,7 @@ import { QuestionCircleFill } from "react-bootstrap-icons";
 import { SendFill } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {getProfilesListAction} from "../../redux/actions/index"
+// import { getProfilesListAction } from "../../redux/actions/index";
 
 const SideBar = () => {
   const [profiles, setProfiles] = useState(null);
@@ -25,8 +25,7 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        // console.log(data);
-        // console.log(profiles);
+        setProfiles(data);
       } else {
         console.log(`something went wrong`);
       }
@@ -36,7 +35,8 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    getProfilesListAction();
+    fetchProfiles();
+    // getProfilesListAction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -6,8 +6,6 @@ import NavBar from "./components/NavBar/NabVabarComponent";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FeedPage from "./components/FeedPageFiles/FeedPage/FeedMainPage";
 
-import FeedPage from "./components/FeedPageFiles/FeedPage/FeedMainPage";
-
 function App() {
   return (
     <BrowserRouter>
