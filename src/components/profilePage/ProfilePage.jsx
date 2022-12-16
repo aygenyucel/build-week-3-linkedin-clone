@@ -14,8 +14,8 @@ import {
 import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 import SuggestedCard from "../suggestedCard/SuggestedCard";
-import ResourcesCard from "../ResourcesCard/ResourcesCard";
 import ActivityCard from "../activityCard/ActvityCard";
+import ResourcesCard from "./../resourcesCard/ResourcesCard";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
