@@ -1,6 +1,6 @@
 import ProfileMainCard from "../profileMainCard/ProfileMainCard";
 import SideBar from "../sidebar/SideBar";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./profilePage.css";
 import ExperienceCard from "../experienceCard/ExperienceCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +15,10 @@ import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 import SuggestedCard from "../suggestedCard/SuggestedCard";
 import ActivityCard from "../activityCard/ActvityCard";
-import ResourcesCard from "../ResourcesCard/ResourcesCard";
+import ResourcesCard from "../resourcesCard/ResourcesCard";
+import EducationCard from "../educationCard/EducationCard";
+import LanguagesCard from "../languagesCard/LanguagesCard";
+import Footer from "../footer/footer";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -52,23 +55,32 @@ const ProfilePage = () => {
   return (
     <>
       {dynamicUrl === "me" ? (
-        <Container className="d-flex mt-2">
-          <div className="main-card-div">
-            <ProfileMainCard mainData={profileMainData} isMyProfile={true} />
-            {/* checking if there are any bio */}
-            {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
-            {/* checking if there are any experiences */}
-            {profileExperiencesData.length !== 0 && (
-              <ExperienceCard experiences={profileExperiencesData} />
-            )}
-            <SuggestedCard />
-            <ResourcesCard />
-            <ActivityCard />
-          </div>
-          <div className="sidebar-div">
-            <SideBar />
-          </div>
-        </Container>
+        <>
+          <Container>
+            <div className="d-flex mt-2">
+              <div className="main-card-div">
+                <ProfileMainCard
+                  mainData={profileMainData}
+                  isMyProfile={true}
+                />
+                {/* checking if there are any bio */}
+                {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
+                {/* checking if there are any experiences */}
+                {profileExperiencesData.length !== 0 && (
+                  <ExperienceCard experiences={profileExperiencesData} />
+                )}
+                <SuggestedCard />
+                <ResourcesCard />
+                <ActivityCard />
+                <EducationCard />
+                <LanguagesCard />
+              </div>
+              <div className="sidebar-div">
+                <SideBar />
+              </div>
+            </div>
+          </Container>
+        </>
       ) : (
         <Container className="d-flex mt-2">
           <div className="main-card-div">
@@ -79,6 +91,8 @@ const ProfilePage = () => {
             {userExperiencesData.length !== 0 && (
               <ExperienceCard experiences={userExperiencesData} />
             )}
+            <EducationCard />
+            <LanguagesCard />
           </div>
 
           <div className="sidebar-div">
