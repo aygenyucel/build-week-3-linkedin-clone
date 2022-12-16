@@ -4,12 +4,12 @@ import "./profileMainCard.css";
 import { BsBell } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdPersonAdd } from "react-icons/md";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getProfileAction } from "../../redux/actions";
 import { updateEditAction } from "../../redux/actions";
 import { Form, Modal } from "react-bootstrap";
-
+import EditProfileModal from "../editProfileModal/EditProfileModal";
 
 const ProfileMainCard = ({ mainData, isMyProfile }) => {
 
@@ -50,9 +50,10 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   const dispatch = useDispatch();
   return (
-    <div className="profile-main-card mb-2">
+    <div className="profile-main-card custom-card pt-0">
       <div className="profile-main-card-background">
         <img
           src="/assets/profile-background-default.png"
@@ -65,9 +66,10 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
       <div className="profile-main-card-bottom">
         <Container className="profile-main-card-middle mb-4">
           <div className="d-flex justify-content-end align-items-end">
-
             {isMyProfile ? (
               <div className="edit-icon">
+                <Button className="edit-icon" onClick={() => setShow(true)}>
+                  <EditProfileModal tim={show} />
                  <Button className="edit-icon" onClick={handleShow}>
                   <FiEdit2 />
                 </Button>
@@ -128,18 +130,15 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
                 <BsBell />
               </div>
             )}
-
           </div>
         </Container>
-        
+
         <Container className="profile-main-card-info">
           <Row>
             <Col xs={8}>
               <div className="main-info d-flex flex-column">
-
                 <div className="profile-name">
                   {mainData.name} {mainData.surname}
-                  
                 </div>
                 <div className="profile-about mb-2">{mainData.title}</div>
                 <div className="profile-details d-flex align-items-center mb-2">
@@ -189,7 +188,9 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
                       </Button>
                     </div>
                     <div className="mr-2">
-                      <Button className="more-btn right-btn">More</Button>
+                      <Button className="more-btn gray-btn right-btn">
+                        More
+                      </Button>
                     </div>
                   </div>
                 )}
