@@ -2,7 +2,7 @@ import "./profileBar.css";
 
 const ProfileBar = ({ mainData }) => {
   return (
-    <>
+    <div className="main-container-profile-bar">
       <div className="main-div-profilebar mb-2 d-flex flex-column ">
         <div className="main-div-profilebar-background">
           <img
@@ -47,7 +47,7 @@ const ProfileBar = ({ mainData }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -20,3 +20,7 @@
   font-size: 0.9rem;
   margin-top: -2px;
 }
+.responsive-img {
+  width: 100%;
+  height: auto;
+}

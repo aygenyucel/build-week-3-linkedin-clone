@@ -67,7 +67,9 @@
 .bolder {
   font-weight: bolder;
 }
-
+.main-container-profile-bar {
+  width: 100%;
+}
 @media screen and (max-width: 780px) {
   .second-card-main {
     display: none;

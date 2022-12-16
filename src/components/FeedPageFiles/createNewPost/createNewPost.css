@@ -33,7 +33,7 @@ body {
 
 .fake-input {
   height: 3rem;
-  width: 28rem;
+  width: 28vw;
   border: 1px solid var(--color-text-gray);
   border-radius: 28px;
 }
@@ -57,8 +57,8 @@ body {
   height: 6rem;
 }
 
-@media screen and (max-width: 580px) {
-  .main-div-icons {
-    display: none;
+@media screen and (max-width: 500px) {
+  .fake-input {
+    width: 250px;
   }
 }
