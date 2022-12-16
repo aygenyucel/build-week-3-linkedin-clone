@@ -1,18 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Row, Col, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useEffect } from "react";
-import { getProfilesListAction } from "../../../redux/actions/index"
-import { useDispatch } from "react-redux";
+import { getProfilesListAction } from "../../../redux/actions/index";
+import { useDispatch, useSelector } from "react-redux";
 import { FiArrowRight } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
-import "./rightSideBar.css"
+import "./rightSideBar.css";
 // import { BsInfoLg } from "react-icons/bs";
 
 export default function RightSideBar() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.listOfProfiles.profilesList);
-  
+
   useEffect(() => {
     dispatch(getProfilesListAction());
   }, []);
@@ -20,111 +19,77 @@ export default function RightSideBar() {
   console.log(users);
   return (
     <>
-      <div
-        id="thirdTop"
-        style={{ backgroundColor: "white", borderRadius: "5px" }}
-        className="mt-3"
-      >
-        <div className="pt-2 ml-2 mr-2 d-flex justify-content-between align-items-center">
-          <h6 className="text-smaller font-weight-bold">Add your feed</h6>
-          <h6>
-            {/* <BsInfoLg /> */}
-          </h6>
+      <div className=" mb-2 d-flex flex-column main-div-profile-sidebar">
+        <div>
+          <h6 className="title-bar">People also wiewed</h6>
         </div>
-        <Col xs={11} className="ml-2">
-          <Row>
-            <Col xs={2} className="mr-3 d-flex align-items-center">
-              <img
-                className="mt-3 rounded-img"
-                style={{ width: "3rem" }}
-                src={users[63]?.image}
-                alt="..."
-              />
-            </Col>
-            <Col xs={8}>
-              <h6 className="pt-4 no-p-no-m ">{users[63]?.name}</h6>
-              <p
-                className="smaller-text
-text-muted text-truncate no-p-no-m mb-1"
-              >
-                {users[63]?.bio}
-              </p>
-            </Col>
-            <Col className="d-flex justify-content-center">
-              <Button
-                type="button"
-                className="btn-connect btn-secondary text-dark transparent d-flex align-items-center message"
-                id="buttons-rounded"
-              >
-                <AiOutlinePlus className="mr-1 p-0" />
-                Follow
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={11} className="ml-2">
-          <Row>
-            <Col xs={2} className="mr-3 d-flex align-items-center">
-              <img
-                className="mt-3 rounded-img"
-                style={{ width: "3rem" }}
-                src={users[62]?.image}
-                alt="..."
-              />
-            </Col>
-            <Col xs={8}>
-              <h6 className="pt-4 no-p-no-m ">{users[62]?.name}</h6>
-              <p
-                className="smaller-text
-text-muted text-truncate no-p-no-m mb-1"
-              >
-                {users[62]?.bio}
-              </p>
-            </Col>
-            <Col className="d-flex justify-content-center">
-              <Button
-                type="button"
-                className="btn-connect btn-secondary text-dark transparent d-flex align-items-center message"
-                id="buttons-rounded"
-              >
-                <AiOutlinePlus className="mr-1 p-0" />
-                Follow
-              </Button>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={11} className="ml-2">
-          <Row>
-            <Col xs={2} className="mr-3 d-flex align-items-center">
-              <img
-                className="mt-3 rounded-img"
-                style={{ width: "3rem" }}
-                src={users[69]?.image}
-                alt="..."
-              />
-            </Col>
-            <Col xs={8}>
-              <h6 className="pt-4 no-p-no-m ">{users[69]?.name}</h6>
-              <p
-                className="smaller-text
-text-muted text-truncate no-p-no-m mb-1"
-              >
-                {users[69]?.bio}
-              </p>
-            </Col>
-            <Col className="d-flex justify-content-center">
-              <Button
-                type="button"
-                className="btn-connect btn-secondary text-dark transparent d-flex align-items-center message"
-                id="buttons-rounded"
-              >
-                <AiOutlinePlus className="mr-1 p-0" />
-                Follow
-              </Button>
-            </Col>
-          </Row>
-        </Col>
 
+        <div className="user-info-feed-side mt-3">
+          <div className="profile-img-feed-side d-flex justify-content-center">
+            <img src={users[61]?.image} alt="..." />
+          </div>
+
+          <div className="user-info-feed-side">
+            <h6 className="">{users[61]?.name}</h6>
+            <p className="user-title-p">{users[61]?.title}</p>
+          </div>
+          <div>
+            <div className="rounded-button">
+              <AiOutlinePlus className="mr-1 p-0" />
+              Follow
+            </div>
+          </div>
+        </div>
+        <div className="user-info-feed-side mt-3">
+          <div className="profile-img-feed-side d-flex justify-content-center">
+            <img src={users[62]?.image} alt="..." />
+          </div>
+
+          <div className="user-info-feed-side">
+            <h6 className="">{users[62]?.name}</h6>
+            <p className="user-title-p">{users[62]?.title}</p>
+          </div>
+          <div>
+            <div className="rounded-button">
+              <AiOutlinePlus className="mr-1 p-0" />
+              Follow
+            </div>
+          </div>
+        </div>
+
+        <div className="user-info-feed-side mt-3">
+          <div className="profile-img-feed-side d-flex justify-content-center">
+            <img src={users[79]?.image} alt="..." />
+          </div>
+
+          <div className="user-info-feed-side">
+            <h6 className="">{users[79]?.name}</h6>
+            <p className="user-title-p">{users[79]?.title}</p>
+          </div>
+          <div>
+            <div className="rounded-button">
+              <AiOutlinePlus className="mr-1 p-0" />
+              Follow
+            </div>
+          </div>
+        </div>
+
+        <div className="user-info-feed-side mt-3">
+          <div className="profile-img-feed-side d-flex justify-content-center">
+            <img src={users[77]?.image} alt="..." />
+          </div>
+
+          <div className="user-info-feed-side">
+            <h6 className="">{users[77]?.name}</h6>
+            <p className="user-title-p">{users[77]?.title}</p>
+          </div>
+          <div>
+            <div className="rounded-button">
+              <AiOutlinePlus className="mr-1 p-0" />
+              Follow
+            </div>
+          </div>
+        </div>
         <div id="recommend" className="ml-3 mt-4 pb-1">
           <a href="/#">
             <p>
@@ -132,47 +97,36 @@ text-muted text-truncate no-p-no-m mb-1"
             </p>
           </a>
         </div>
-      </div>
-      <div id="side-footer" className="text-center mt-3">
-        <Row className="right__side__footer">
-          <Col xs={12}>
-            <a href="/"> about </a>
-            <a href="/" className="mx-2">
-              accessibility
-            </a>
-            <a href="/"> help center </a>
-          </Col>
-          <Col xs={12}>
-            <a href="/"> privacy & terms</a>
-            <a href="/" className="mx-2">
-              ad choises
-            </a>
-          </Col>
-          <Col xs={12}>
-            <a href="/"> advertising </a>
-            <a href="/" className="mx-2">
-              business services
-            </a>
-          </Col>
-          <Col xs={12}>
-            <a href="/"> get the linkedin app </a>
-            <a href="/" className="mx-2">
-              more
-            </a>
-          </Col>
-          <Col xs={12} className="d-flex flex-row mt-3 justify-content-center">
+        <div className="right__side__footer p-2">
+          <div className="d-flex justify-content-center">
+            <p className="footer-itens-p">about</p>
+            <p className="footer-itens-p">acessibility</p>
+            <p className="footer-itens-p"> help center </p>
+          </div>
+          <div className="d-flex justify-content-center">
+            <p className="footer-itens-p"> privacy & terms</p>
+            <p className="footer-itens-p">ad choises</p>
+          </div>
+          <div className="d-flex justify-content-center">
+            <p className="footer-itens-p"> advertising </p>
+            <p className="footer-itens-p">business services</p>
+          </div>
+          <div className="d-flex justify-content-center">
+            <p className="footer-itens-p"> get the linkedin app </p>
+            <p className="footer-itens-p">more</p>
+          </div>
+          <div className="d-flex  mt-5 justify-content-center">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/LinkedIn_2021.svg/1024px-LinkedIn_2021.svg.png"
-              className="mr-2"
-              id="linkedin-logo"
+              className="logo-footer-side"
               alt="Linked img"
-              width={100}
-              height={60}
             />
 
-            <p>linkedin corporation &copy; {new Date().getFullYear()}</p>
-          </Col>
-        </Row>
+            <p className="footer-itens-p-footer">
+              linkedin corporation &copy; {new Date().getFullYear()}
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

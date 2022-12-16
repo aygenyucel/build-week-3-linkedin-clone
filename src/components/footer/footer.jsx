@@ -12,9 +12,12 @@ const Footer = () => {
       <Container>
         <div className="row">
           <Image
-            src={linkedinlogo}
-            className="footer_logo ml-4 footer-logo-profile"
-            alt="some-logo"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/LinkedIn_2021.svg/1024px-LinkedIn_2021.svg.png"
+className="mr-2"
+id="linkedin-logo"
+alt="Linked img"
+width={60}
+height={60}
           />
         </div>
         <Row className="pt-2 pl-4">
