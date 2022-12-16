@@ -41,7 +41,7 @@ const NavBar = () => {
   };
 
   return (
-    <>
+    <div className="navbar-component">
       <Navbar bg="light" expand="lg">
         <Container className="main-container-navbar">
           <div className="d-flex">
@@ -141,7 +141,7 @@ const NavBar = () => {
             ))
           : ""}
       </Container>
-    </>
+    </div>
   );
 };
 

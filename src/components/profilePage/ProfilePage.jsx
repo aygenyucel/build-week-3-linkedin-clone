@@ -18,6 +18,7 @@ import ActivityCard from "../activityCard/ActvityCard";
 import ResourcesCard from "../resourcesCard/ResourcesCard";
 import EducationCard from "../educationCard/EducationCard";
 import LanguagesCard from "../languagesCard/LanguagesCard";
+import Footer from "../footer/footer";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -54,30 +55,32 @@ const ProfilePage = () => {
   return (
     <>
       {dynamicUrl === "me" ? (
-        <Container className="d-flex mt-2">
-          <Row>
-            <Col xs={10}></Col>
-            <Col xs={2}></Col>
-          </Row>
-
-          <div className="main-card-div">
-            <ProfileMainCard mainData={profileMainData} isMyProfile={true} />
-            {/* checking if there are any bio */}
-            {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
-            {/* checking if there are any experiences */}
-            {profileExperiencesData.length !== 0 && (
-              <ExperienceCard experiences={profileExperiencesData} />
-            )}
-            <SuggestedCard />
-            <ResourcesCard />
-            <ActivityCard />
-            <EducationCard />
-            <LanguagesCard />
-          </div>
-          <div className="sidebar-div">
-            <SideBar />
-          </div>
-        </Container>
+        <>
+          <Container>
+            <div className="d-flex mt-2">
+              <div className="main-card-div">
+                <ProfileMainCard
+                  mainData={profileMainData}
+                  isMyProfile={true}
+                />
+                {/* checking if there are any bio */}
+                {profileMainData.bio && <AboutCard bio={profileMainData.bio} />}
+                {/* checking if there are any experiences */}
+                {profileExperiencesData.length !== 0 && (
+                  <ExperienceCard experiences={profileExperiencesData} />
+                )}
+                <SuggestedCard />
+                <ResourcesCard />
+                <ActivityCard />
+                <EducationCard />
+                <LanguagesCard />
+              </div>
+              <div className="sidebar-div">
+                <SideBar />
+              </div>
+            </div>
+          </Container>
+        </>
       ) : (
         <Container className="d-flex mt-2">
           <div className="main-card-div">
