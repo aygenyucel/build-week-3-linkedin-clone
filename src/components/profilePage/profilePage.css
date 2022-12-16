@@ -4,7 +4,7 @@
 .sidebar-div {
   width: 350px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 850px) {
   .sidebar-div {
     display: none;
     visibility: hidden;
