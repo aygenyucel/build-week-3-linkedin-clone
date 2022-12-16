@@ -13,7 +13,7 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className="profile-main-card custom-card ">
+    <div className="profile-main-card custom-card pt-0">
       <div className="profile-main-card-background">
         <img
           src="/assets/profile-background-default.png"
@@ -96,7 +96,9 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
                       </Button>
                     </div>
                     <div className="mr-2">
-                      <Button className="more-btn right-btn">More</Button>
+                      <Button className="more-btn gray-btn right-btn">
+                        More
+                      </Button>
                     </div>
                   </div>
                 )}
