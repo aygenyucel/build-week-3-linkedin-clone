@@ -39,14 +39,12 @@ const SuggestedCard = () => {
         <Col>
           <div className="suggested-text-area">
             <Row className="mb-2">
-              <Col xs={2}>
+              <Col className="d-flex ">
                 <img
                   src="/assets/symbolic-profile-img.png"
                   alt="profile symbol"
                 />
-              </Col>
-              <Col xs={10}>
-                <div className="header-small">
+                <div className="header-small ml-2">
                   Write a summary to highlight your personality or work
                   experience
                 </div>
