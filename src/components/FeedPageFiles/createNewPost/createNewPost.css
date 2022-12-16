@@ -15,9 +15,16 @@ body {
   border: 1px solid lightgrey;
   height: 9rem;
   border-radius: 8px;
-  width: 40rem;
+  width: 35rem;
 }
-.profile-img-post img {
+.profile-img-post-top img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  outline: 5px solid white;
+  object-fit: cover;
+}
+.profile-img-post-modal img {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
@@ -27,7 +34,7 @@ body {
 
 .fake-input {
   height: 3rem;
-  width: 32rem;
+  width: 28rem;
   border: 1px solid var(--color-text-gray);
   border-radius: 28px;
 }

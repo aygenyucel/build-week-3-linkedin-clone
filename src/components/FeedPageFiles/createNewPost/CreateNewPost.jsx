@@ -1,4 +1,4 @@
-import { Row, Col, Form, Modal, Button } from "react-bootstrap";
+import { Row, Form, Modal, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { createNewPostAction } from "../../../redux/actions";
@@ -8,7 +8,7 @@ import { BsFillPlayBtnFill } from "react-icons/bs";
 import { BsCalendarEventFill } from "react-icons/bs";
 import { MdArticle } from "react-icons/md";
 
-const CreateNewPost = () => {
+const CreateNewPost = ({ mainData }) => {
   //modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -33,11 +33,8 @@ const CreateNewPost = () => {
       <Row>
         <div className="create-post-div">
           <div className="d-flex justify-content-center">
-            <div className="profile-img-post p-2 mt-2">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png?20111015043011"
-                alt="profile img"
-              />
+            <div className="profile-img-post-top p-2 mt-2">
+              <img src={mainData.image} alt="profile img" />
             </div>
             <div className="p-2 mt-2">
               <div
@@ -90,16 +87,13 @@ const CreateNewPost = () => {
           <Modal.Title>Create a post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="d-flex justify-content-left">
-            <div className="profile-img-post">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/d/dc/MichaelScott.png?20111015043011"
-                alt="profile img"
-              />
+          <div className="d-flex align-itens-center">
+            <div className="profile-img-post-modal">
+              <img src={mainData.image} alt="profile img" />
             </div>
             <div className="mt-2">
-              <div className=" d-flex align-items-center">
-                <p className="ml-1">User Name</p>
+              <div className="d-flex ml-2 nameAndSurname">
+                {mainData.name} {mainData.surname}
               </div>
             </div>
           </div>

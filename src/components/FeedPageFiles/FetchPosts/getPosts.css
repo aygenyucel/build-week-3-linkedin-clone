@@ -3,11 +3,11 @@
   border: 1px solid lightgrey;
   padding: 10px;
   border-radius: 8px;
-  width: 40rem;
+  width: 35rem;
 }
-.profile-img-post img {
-  height: 2rem;
-  width: 2rem;
+.profile-img-post-feed img {
+  height: 3rem;
+  width: 3rem;
   border-radius: 50%;
   outline: 3px solid white;
   object-fit: cover;
