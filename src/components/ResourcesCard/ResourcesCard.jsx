@@ -23,16 +23,16 @@ const ResourcesCard = () => {
         </Row>
         <Row>
           <Col>
-            <div className="d-flex flex-column">
-              <div className="header-small">
-                <span className="mr-2">
-                  <GiRadarDish className="card-icon" />
-                </span>
-                Creator mode <span>Off</span>
-              </div>
-              <div>
-                Get discovered, showcase content on your profile, and get access
-                to creator tools
+            <div className="d-flex">
+              <GiRadarDish className="card-icon" />
+              <div className="ml-2 d-flex flex-column">
+                <div className="header-small">
+                  Creator mode <span>Off</span>
+                </div>
+                <div className="text-small">
+                  Get discovered, showcase content on your profile, and get
+                  access to creator tools
+                </div>
               </div>
             </div>
           </Col>
@@ -40,16 +40,13 @@ const ResourcesCard = () => {
         <hr />
         <Row>
           <Col>
-            <div className="d-flex flex-column">
-              <div className="header-small">
-                <span className="mr-2">
-                  <MdPeopleAlt className="card-icon" />
-                </span>
-                My network
-              </div>
-              <div>
-                Get discovered, showcase content on your profile, and get access
-                to creator tools
+            <div className="d-flex">
+              <MdPeopleAlt className="card-icon" />
+              <div className="ml-2 d-flex flex-column">
+                <div className="header-small">My network</div>
+                <div className="text-small">
+                  See and manage your connections and interests
+                </div>
               </div>
             </div>
           </Col>
