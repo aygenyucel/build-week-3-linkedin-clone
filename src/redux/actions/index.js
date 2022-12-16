@@ -6,6 +6,8 @@ export const GET_EXPERIENCES_USER = "GET_EXPERIENCES_USER";
 export const GET_PROFILES_LIST = " GET_PROFILES_LIST";
 export const GET_POSTS_LIST = "GET_POSTS_LIST";
 export const EDIT_PROFILE = "EDIT_PROFILE";
+export const UPDATE_EXPERIENCE = "UPDATE_EXPERIENCE"
+export const DELETE_EXPERIENCE = "DELETE_EXPERIENCE"
 
 export const getProfileAction = () => {
   const options = {
@@ -310,6 +312,68 @@ export const editPostAction = (idPost, textPost) => {
     } catch (error) {
       console.log(error);
       console.log("Post NOT edited!");
+    }
+  };
+};
+
+export const updateExperienceAction = ({role, company, startDate, endDate, description}, userId) => {
+  const changedExperience = {
+    role: role,
+    company: company,
+    startDate: startDate,
+    endDate: endDate,
+    description: description,
+  };
+
+  return async (dispatch) => {
+    const optionPost = {
+      method: "POST",
+      body: JSON.stringify(changedExperience),
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+        optionPost
+      );
+      if (response.ok) {
+        let data = await response.json();
+        alert("Added experience!");
+      } else {
+        console.log(`something went wrong`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const deleteExperienceAction = (userId) => {
+  return async () => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
+      },
+    };
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`,
+        options
+      );
+      if (response.ok) {
+        alert("Experience was deleted!");
+      } else {
+        console.log("Experience was NOT deleted!");
+      }
+    } catch (error) {
+      console.log(error);
+      console.log("Experience NOT deleted!");
     }
   };
 };

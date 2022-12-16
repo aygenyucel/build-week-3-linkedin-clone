@@ -4,6 +4,7 @@ import usersProfileReducer from "./../reducers/usersProfileReducer";
 import searchReducer from "../reducers/searchReducer";
 import feedPostsReducer from "../reducers/feedPostReducer";
 import putProfileReducer from "../reducers/putProfileReducer";
+import updateExperienceReducer from "../reducers/updateExperienceReducer"
 
 
 const bigReducer = combineReducers({
@@ -11,8 +12,8 @@ const bigReducer = combineReducers({
   usersProfile: usersProfileReducer,
   listOfProfiles: searchReducer,
   feedPosts: feedPostsReducer,
-  edit: putProfileReducer
-
+  edit: putProfileReducer,
+  experience: updateExperienceReducer,
 });
 
 const store = configureStore({
