@@ -8,6 +8,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import RightSideBar from "../rightSideBar/RightSideBar";
 
 const FeedMainPage = () => {
+
   const [myPosts, setMyPosts] = useState(false);
   const handleChange = () => {
     setMyPosts(!myPosts);
@@ -16,12 +17,14 @@ const FeedMainPage = () => {
     <Container>
       <Row>
         <Col xs={8}>
+
       <CreateNewPost />
       <button onClick={handleChange}>
         {myPosts ? "See all posts" : "See my posts"}
         <MdKeyboardArrowDown size={25} />
       </button>
       {myPosts ? <GetMyPosts /> : <GetPosts />}
+
       </Col>
       <Col xs={4}>
       <RightSideBar />
