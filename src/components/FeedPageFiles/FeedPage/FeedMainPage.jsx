@@ -25,7 +25,7 @@ const FeedMainPage = () => {
   }, []);
   return (
     <>
-      <Container className="d-flex mt-3">
+      <Container className="main-container-feed-page">
         <div className="profileBar">
           <ProfileBar mainData={profileMainData} />
         </div>

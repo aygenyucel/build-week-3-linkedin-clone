@@ -30,19 +30,20 @@ const ProfileBar = ({ mainData }) => {
         </div>
       </div>
       {/* /////secondcard */}
+      <div className="second-card-main">
+        <div className="main-div-profilebar mb-2 d-flex flex-column">
+          <div className="mt-1">
+            <div className="second-card">
+              <h6 className="pt-2">Recents</h6>
+              <p>#Javascript</p>
+              <p>#React</p>
+              <p>#Epicode</p>
 
-      <div className="main-div-profilebar mb-2 d-flex flex-column ">
-        <div className="mt-1">
-          <div className="second-card">
-            <h6 className="pt-2">Recents</h6>
-            <p>#Javascript</p>
-            <p>#React</p>
-            <p>#Epicode</p>
-
-            <h6 className="pt-2 mt-4 events">Events</h6>
-            <p className="bolder">Guest Lecture</p>
-            <h6 className="pt-2 mt-4 events">Groups</h6>
-            <p className="bolder">Epicoders</p>
+              <h6 className="pt-2 mt-4 events">Events</h6>
+              <p className="bolder">Guest Lecture</p>
+              <h6 className="pt-2 mt-4 events">Groups</h6>
+              <p className="bolder">Epicoders</p>
+            </div>
           </div>
         </div>
       </div>

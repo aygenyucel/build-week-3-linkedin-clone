@@ -13,3 +13,8 @@
   outline: 3px solid white;
   object-fit: cover;
 }
+
+.responsive {
+  width: 100%;
+  height: auto;
+}

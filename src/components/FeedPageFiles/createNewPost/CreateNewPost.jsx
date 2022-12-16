@@ -45,37 +45,39 @@ const CreateNewPost = ({ mainData }) => {
               </div>
             </div>
           </div>
-          <div className="d-flex justify-content-around mt-4">
-            <div className="div-icons-post d-flex justify-content-around align-items-center">
-              <div>
-                <AiFillPicture size={22} color="#378FE9" />
+          <div className="main-div-icons">
+            <div className="d-flex justify-content-around mt-4">
+              <div className="div-icons-post d-flex justify-content-around align-items-center">
+                <div>
+                  <AiFillPicture size={22} color="#378FE9" />
+                </div>
+                <div>
+                  <p className="div-icons-p">Photo</p>
+                </div>
               </div>
-              <div>
-                <p className="div-icons-p">Photo</p>
+              <div className="div-icons-post d-flex justify-content-around align-items-center">
+                <div>
+                  <BsFillPlayBtnFill size={22} color="#5F9B41" />
+                </div>
+                <div>
+                  <p className="div-icons-p">Video</p>
+                </div>
               </div>
-            </div>
-            <div className="div-icons-post d-flex justify-content-around align-items-center">
-              <div>
-                <BsFillPlayBtnFill size={22} color="#5F9B41" />
+              <div className="div-icons-post d-flex justify-content-around align-items-center">
+                <div>
+                  <BsCalendarEventFill size={22} color="#CD994B" />
+                </div>
+                <div>
+                  <p className="div-icons-p">Event</p>
+                </div>
               </div>
-              <div>
-                <p className="div-icons-p">Video</p>
-              </div>
-            </div>
-            <div className="div-icons-post d-flex justify-content-around align-items-center">
-              <div>
-                <BsCalendarEventFill size={22} color="#CD994B" />
-              </div>
-              <div>
-                <p className="div-icons-p">Event</p>
-              </div>
-            </div>
-            <div className="div-icons-post d-flex justify-content-around align-items-center">
-              <div>
-                <MdArticle size={22} color="#E16745" />
-              </div>
-              <div>
-                <p className="div-icons-p">Write article</p>
+              <div className="div-icons-post d-flex justify-content-around align-items-center">
+                <div>
+                  <MdArticle size={22} color="#E16745" />
+                </div>
+                <div>
+                  <p className="div-icons-p">Write article</p>
+                </div>
               </div>
             </div>
           </div>

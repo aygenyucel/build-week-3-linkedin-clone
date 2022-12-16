@@ -15,7 +15,6 @@ body {
   border: 1px solid lightgrey;
   height: 9rem;
   border-radius: 8px;
-  width: 35rem;
 }
 .profile-img-post-top img {
   height: 3rem;
@@ -56,4 +55,10 @@ body {
 
 .form-create-post {
   height: 6rem;
+}
+
+@media screen and (max-width: 580px) {
+  .main-div-icons {
+    display: none;
+  }
 }

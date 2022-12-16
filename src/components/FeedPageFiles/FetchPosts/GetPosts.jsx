@@ -14,7 +14,7 @@ const GetPosts = () => {
 
   return (
     <Row>
-      <div>
+      <>
         {feedPosts.map((element, index) => (
           <div className="post-div mb-2" key={element._id}>
             <div className="d-flex">
@@ -35,11 +35,15 @@ const GetPosts = () => {
               <div className="p-1">{element.text}</div>
             </div>
             <div className="d-flex justify-content-center mt-2">
-              <img src={`https://picsum.photos/id/${index}/550/280`} alt="" />
+              <img
+                className="responsive-img"
+                src={`https://picsum.photos/id/${index}/520/280`}
+                alt=""
+              />
             </div>
           </div>
         ))}
-      </div>
+      </>
     </Row>
   );
 };

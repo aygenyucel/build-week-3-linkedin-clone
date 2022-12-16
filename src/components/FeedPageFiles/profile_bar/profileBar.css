@@ -67,3 +67,9 @@
 .bolder {
   font-weight: bolder;
 }
+
+@media screen and (max-width: 780px) {
+  .second-card-main {
+    display: none;
+  }
+}

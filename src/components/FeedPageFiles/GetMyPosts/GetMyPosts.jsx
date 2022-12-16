@@ -61,7 +61,8 @@ const GetMyPosts = () => {
                 </div>
                 <div className="d-flex justify-content-center mt-2">
                   <img
-                    src={`https://picsum.photos/id/${index}/550/280`}
+                    className="responsive-img"
+                    src={`https://picsum.photos/id/${index}/510/280`}
                     alt=""
                   />
                 </div>
