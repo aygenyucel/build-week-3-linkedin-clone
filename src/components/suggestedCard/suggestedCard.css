@@ -1,0 +1,12 @@
+:root {
+  --primary-color: #0a66c2;
+  --color-text-gray: #929292;
+  --color-text-dark-gray: #6e6e6e;
+  --card-border: 1px solid #dcdcdc;
+  --color-btn-hover: #e2f0fe;
+  --color-gray-btn-hover: #ebebeb;
+}
+
+a {
+  color: var(--primary-color);
+}

@@ -13,6 +13,7 @@ import {
 } from "../../redux/actions";
 import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
+import SuggestedCard from "../suggestedCard/SuggestedCard";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -58,6 +59,7 @@ const ProfilePage = () => {
             {profileExperiencesData.length !== 0 && (
               <ExperienceCard experiences={profileExperiencesData} />
             )}
+            <SuggestedCard />
           </div>
           <div className="sidebar-div">
             <SideBar />

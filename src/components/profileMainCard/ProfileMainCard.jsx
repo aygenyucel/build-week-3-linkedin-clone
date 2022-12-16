@@ -4,19 +4,16 @@ import "./profileMainCard.css";
 import { BsBell } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdPersonAdd } from "react-icons/md";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { getProfileAction } from "../../redux/actions";
 import EditProfileModal from "../editProfileModal/EditProfileModal";
 
-
-
 const ProfileMainCard = ({ mainData, isMyProfile }) => {
-
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className="profile-main-card mb-2">
+    <div className="profile-main-card custom-card ">
       <div className="profile-main-card-background">
         <img
           src="/assets/profile-background-default.png"
@@ -29,11 +26,10 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
       <div className="profile-main-card-bottom">
         <Container className="profile-main-card-middle mb-4">
           <div className="d-flex justify-content-end align-items-end">
-
             {isMyProfile ? (
               <div className="edit-icon">
-                 <Button className="edit-icon" onClick={() => setShow(true)}>
-                  <EditProfileModal tim={show}/>
+                <Button className="edit-icon" onClick={() => setShow(true)}>
+                  <EditProfileModal tim={show} />
                   <FiEdit2 />
                 </Button>
               </div>
@@ -42,18 +38,15 @@ const ProfileMainCard = ({ mainData, isMyProfile }) => {
                 <BsBell />
               </div>
             )}
-
           </div>
         </Container>
-        
+
         <Container className="profile-main-card-info">
           <Row>
             <Col xs={8}>
               <div className="main-info d-flex flex-column">
-
                 <div className="profile-name">
                   {mainData.name} {mainData.surname}
-                  
                 </div>
                 <div className="profile-about mb-2">{mainData.title}</div>
                 <div className="profile-details d-flex align-items-center mb-2">
