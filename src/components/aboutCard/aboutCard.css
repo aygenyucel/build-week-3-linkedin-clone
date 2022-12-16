@@ -9,7 +9,6 @@
 .about-card {
   border: var(--card-border);
   border-radius: 10px;
-  padding-block: 15px;
 }
 .header-card {
   font-size: 1.2rem;

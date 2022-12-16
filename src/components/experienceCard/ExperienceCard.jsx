@@ -6,7 +6,7 @@ import { format } from "date-fns";
 
 const ExperienceCard = ({ experiences }) => {
   return (
-    <div className="experience-card">
+    <div className="experience-card custom-card">
       <Container>
         <div className="header-card mb-2"> Experience</div>
         {experiences.map((experience, index) => {

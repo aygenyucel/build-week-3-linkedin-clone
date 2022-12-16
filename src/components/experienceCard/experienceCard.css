@@ -9,7 +9,6 @@
 .experience-card {
   border: var(--card-border);
   border-radius: 10px;
-  padding-block: 15px;
 }
 .company-logo img {
   height: 48px;
