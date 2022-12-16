@@ -5,6 +5,7 @@ import { QuestionCircleFill } from "react-bootstrap-icons";
 import { SendFill } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import {getProfilesListAction} from "../../redux/actions/index"
 
 const SideBar = () => {
   const [profiles, setProfiles] = useState(null);
@@ -15,28 +16,26 @@ const SideBar = () => {
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
     },
   };
-  const fetchProfiles = async () => {
-    try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/",
-        options
-      );
-      if (response.ok) {
-        let data = await response.json();
-        // console.log(data);
-        const slicedData = data.slice(60, 70);
-        setProfiles(slicedData);
-        // console.log(profiles);
-      } else {
-        console.log(`something went wrong`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const fetchProfiles = async () => {
+  //   try {
+  //     let response = await fetch(
+  //       "https://striveschool-api.herokuapp.com/api/profile/",
+  //       options
+  //     );
+  //     if (response.ok) {
+  //       let data = await response.json();
+  //       // console.log(data);
+  //       // console.log(profiles);
+  //     } else {
+  //       console.log(`something went wrong`);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
-    fetchProfiles();
+    getProfilesListAction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

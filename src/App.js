@@ -13,6 +13,7 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
+          <Route path="/" element={<FeedPage />} />
           <Route path="/profile/me" element={<ProfilePage />} />
           <Route path="/profile/:id" element={<ProfilePage />} />
         </Routes>
