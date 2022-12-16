@@ -5,6 +5,7 @@ import { QuestionCircleFill } from "react-bootstrap-icons";
 import { SendFill } from "react-bootstrap-icons";
 import { Link, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import {getProfilesListAction} from "../../redux/actions/index"
 
 const SideBar = () => {
   const [profiles, setProfiles] = useState(null);
@@ -15,6 +16,7 @@ const SideBar = () => {
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzk2ZjNmYmM5NmRmYjAwMTUyMWE1YmUiLCJpYXQiOjE2NzA4MzcyNDQsImV4cCI6MTY3MjA0Njg0NH0.lj6PsFRCQqFIpT6qYY681bm60-LvcXLTb-HKHJoptLI",
     },
   };
+
   const fetchProfiles = async () => {
     try {
       let response = await fetch(
@@ -34,7 +36,7 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    fetchProfiles();
+    getProfilesListAction();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
