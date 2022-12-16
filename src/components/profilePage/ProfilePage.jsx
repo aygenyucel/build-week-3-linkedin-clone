@@ -14,6 +14,7 @@ import {
 import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 import SuggestedCard from "../suggestedCard/SuggestedCard";
+import ResourcesCard from "../ResourcesCard/ResourcesCard";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ const ProfilePage = () => {
               <ExperienceCard experiences={profileExperiencesData} />
             )}
             <SuggestedCard />
+            <ResourcesCard />
           </div>
           <div className="sidebar-div">
             <SideBar />

@@ -14,6 +14,11 @@ a {
   font-weight: 600;
 }
 
+.card-icon {
+  color: var(--color-text-dark-gray);
+  font-size: 1.2rem;
+}
+
 .App {
   background-color: var(--color-background);
 }
@@ -28,7 +33,6 @@ a {
 }
 
 .header-card {
-  margin-top: 6px;
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -44,7 +48,18 @@ a {
 .header-small {
   font-weight: 600;
 }
+.header-small-gray {
+  font-weight: 600;
+  color: var(--color-text-gray);
+}
 
+.show-all-btn {
+  padding-block: 10px;
+  cursor: pointer;
+}
+.show-all-btn:hover {
+  background-color: var(--color-gray-btn-hover);
+}
 .gray-custom-btn {
   font-weight: 600;
   border-radius: 50px;
