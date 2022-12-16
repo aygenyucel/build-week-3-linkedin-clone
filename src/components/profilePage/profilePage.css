@@ -1,7 +1,12 @@
-.sidebar-div {
-  width: 30%;
-}
-
 .main-card-div {
-  width: 70%;
+  width: 100%;
+}
+.sidebar-div {
+  width: 322px;
+}
+@media only screen and (max-width: 768px) {
+  .sidebar-div {
+    display: none;
+    visibility: hidden;
+  }
 }

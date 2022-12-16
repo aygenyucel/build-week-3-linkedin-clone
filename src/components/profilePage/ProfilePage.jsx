@@ -1,6 +1,6 @@
 import ProfileMainCard from "../profileMainCard/ProfileMainCard";
 import SideBar from "../sidebar/SideBar";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./profilePage.css";
 import ExperienceCard from "../experienceCard/ExperienceCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -55,6 +55,11 @@ const ProfilePage = () => {
     <>
       {dynamicUrl === "me" ? (
         <Container className="d-flex mt-2">
+          <Row>
+            <Col xs={10}></Col>
+            <Col xs={2}></Col>
+          </Row>
+
           <div className="main-card-div">
             <ProfileMainCard mainData={profileMainData} isMyProfile={true} />
             {/* checking if there are any bio */}
