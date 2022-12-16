@@ -12,7 +12,7 @@ const ActivityCard = () => {
             97 followers
           </a>
         </div>
-        <div className="mt-2">
+        <div className="mt-2 activity-button">
           <Button className="start-a-post-btn secondary-blue-btn">
             Start a Post
           </Button>
