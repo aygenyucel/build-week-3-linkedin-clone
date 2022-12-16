@@ -15,7 +15,8 @@ import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 import SuggestedCard from "../suggestedCard/SuggestedCard";
 import ActivityCard from "../activityCard/ActvityCard";
-import ResourcesCard from "../ResourcesCard/ResourcesCard";
+import ResourcesCard from "../resourcesCard/ResourcesCard";
+import EducationCard from "../educationCard/EducationCard";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ const ProfilePage = () => {
             <SuggestedCard />
             <ResourcesCard />
             <ActivityCard />
+            <EducationCard />
           </div>
           <div className="sidebar-div">
             <SideBar />
@@ -79,6 +81,7 @@ const ProfilePage = () => {
             {userExperiencesData.length !== 0 && (
               <ExperienceCard experiences={userExperiencesData} />
             )}
+            <EducationCard />
           </div>
 
           <div className="sidebar-div">
