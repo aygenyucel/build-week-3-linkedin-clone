@@ -17,6 +17,7 @@ import SuggestedCard from "../suggestedCard/SuggestedCard";
 import ActivityCard from "../activityCard/ActvityCard";
 import ResourcesCard from "../resourcesCard/ResourcesCard";
 import EducationCard from "../educationCard/EducationCard";
+import LanguagesCard from "../languagesCard/LanguagesCard";
 
 const ProfilePage = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,7 @@ const ProfilePage = () => {
             <ResourcesCard />
             <ActivityCard />
             <EducationCard />
+            <LanguagesCard />
           </div>
           <div className="sidebar-div">
             <SideBar />
@@ -82,6 +84,7 @@ const ProfilePage = () => {
               <ExperienceCard experiences={userExperiencesData} />
             )}
             <EducationCard />
+            <LanguagesCard />
           </div>
 
           <div className="sidebar-div">
