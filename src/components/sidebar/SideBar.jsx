@@ -25,7 +25,8 @@ const SideBar = () => {
       );
       if (response.ok) {
         let data = await response.json();
-        setProfiles(data);
+        const slicedData = data.slice(15,25)
+        setProfiles(slicedData);
       } else {
         console.log(`something went wrong`);
       }

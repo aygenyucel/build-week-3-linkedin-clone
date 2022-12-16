@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { FiEdit2 } from "react-icons/fi";
 import { Modal, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { updateExperienceAction } from "../../redux/actions";
+import { updateExperienceAction, deleteExperienceAction } from "../../redux/actions";
 import { useParams } from "react-router";
 
 const ExperienceCard = ({ experiences }) => {
@@ -30,6 +30,11 @@ const ExperienceCard = ({ experiences }) => {
     );
     setShow(false);
   };
+
+  const deleteAction = () => {
+    dispatch(deleteExperienceAction(params.id));
+    setShow(false)
+  }
 
   const handleChangeRole = (e) => {
     setRole(e.target.value);
@@ -122,7 +127,7 @@ const ExperienceCard = ({ experiences }) => {
                         <Button
                           variant="danger"
                           className="stubborn-btn"
-                          onClick={() => updateAction()}
+                          onClick={() => deleteAction()}
                         >
                           Delete
                         </Button>
