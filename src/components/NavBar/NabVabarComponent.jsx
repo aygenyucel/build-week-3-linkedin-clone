@@ -12,10 +12,11 @@ import "./NavBar.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProfilesListAction } from "../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const NavBar = () => {
   const selector = useSelector((state) => state.profile.data);
+  const params = useParams();
   const dispatch = useDispatch();
   const listOfProfile = useSelector(
     (state) => state.listOfProfiles.profilesList
@@ -44,8 +45,8 @@ const NavBar = () => {
     <div className="navbar-component">
       <Navbar bg="light" expand="lg">
         <Container className="main-container-navbar">
-          <div className="d-flex">
-            <Navbar.Brand href="#">
+          <div className="d-flex align-items-center">
+            <Navbar.Brand href="/">
               <BsLinkedin color="#0A66C2" size={34} />
             </Navbar.Brand>
 
@@ -135,7 +136,9 @@ const NavBar = () => {
                       alt={element.name}
                     />
                   </div>
-                  {element.name} {element.surname}
+                  <Link to={`/profile/${element._id}`}>
+                    {element.name} {element.surname}
+                  </Link>
                 </li>
               </div>
             ))
