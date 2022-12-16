@@ -24,7 +24,7 @@ const GetMyPosts = () => {
     dispatch(getFeedPostsAction());
   }, []);
   const myPostsList = feedPosts.filter(
-    (element) => element.username === "Raul"
+    (element) => element.username === "aygenyucel"
   );
   console.log(myPostsList);
 
