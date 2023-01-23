@@ -15,7 +15,7 @@ import AboutCard from "../aboutCard/AboutCard";
 import { useLocation, useParams } from "react-router-dom";
 import SuggestedCard from "../suggestedCard/SuggestedCard";
 import ActivityCard from "../activityCard/ActvityCard";
-import ResourcesCard from "../ResourcesCard/ResourcesCard";
+import ResourcesCard from "../resourcesCard/ResourcesCard";
 import EducationCard from "../educationCard/EducationCard";
 import LanguagesCard from "../languagesCard/LanguagesCard";
 import Footer from "../footer/footer";
