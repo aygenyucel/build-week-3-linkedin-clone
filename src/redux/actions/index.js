@@ -222,7 +222,6 @@ export const updateEditAction = (name, surname, bio, title, area) => {
           type: EDIT_PROFILE,
           payload: data,
         });
-        alert("Profile was updated!");
       } else {
         console.log(`something went wrong`);
       }
@@ -250,7 +249,6 @@ export const createNewPostAction = (textPost) => {
         options
       );
       if (response.ok) {
-        alert("Post was sent!");
       } else {
         console.log(`something went wrong`);
       }
@@ -275,7 +273,6 @@ export const deletePostAction = (idPost) => {
         options
       );
       if (response.ok) {
-        alert("Post was deleted!");
       } else {
         console.log("Comment NOT deleted!");
       }
@@ -305,7 +302,6 @@ export const editPostAction = (idPost, textPost) => {
         options
       );
       if (response.ok) {
-        alert("Post was edited!");
       } else {
         console.log("Post NOT edited!");
       }

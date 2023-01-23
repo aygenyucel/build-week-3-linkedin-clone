@@ -17,7 +17,7 @@ className="mr-2"
 id="linkedin-logo"
 alt="Linked img"
 width={60}
-height={60}
+height={30}
           />
         </div>
         <Row className="pt-2 pl-4">
